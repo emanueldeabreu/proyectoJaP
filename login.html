@@ -18,27 +18,26 @@
 
 <body>
   <main class="mt-5">
-    <div class="container">
-      <div>
-        <h4 class="alert-heading">Iniciar Sesión</h4>
-      </div>
-    </div>
-    <section>
-      <form>
-        <div class="usuario">
-          <input type="text" name="usuario" id="usuario" required placeholder="Usuario">
-        </div>
-        <div class="password">
-          <input type="password" name="password" id="password" required placeholder="Contraseña">
-        </div>
-        <div>
-          <button type="submit">Ingresar</button>
-        </div>
-      </form>
 
-    </section>
-  </main>
-  <footer class="text-muted">
+  <div class="container" style="max-width: 400px;">
+    <h2 class="text-center mb-4">Iniciar Sesión</h2>
+    <form>
+      <div class="mb-3">
+        <label for="usuario" class="form-label">Usuario</label>
+        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingresá tu usuario" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="contrasena" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Ingresá tu contraseña" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+    </form>
+  </div>
+</main>
+
+<footer class="text-muted">
     <div class="container">
       <p class="float-end">
         <a href="#">Volver arriba</a>
