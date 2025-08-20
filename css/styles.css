@@ -246,3 +246,30 @@ footer{
   background: #999;
   margin: 0 0.5rem;
 }
+
+.producto {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.producto img {
+  width: 250px;
+  height: auto;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+
+.contInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.detalles {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: gray;
+}
