@@ -189,10 +189,11 @@ a.custom-card:hover {
   color: orange;
 }
 
-
+header{
+  background-color: rgba(200, 200, 200, 0.300);
+}
 
 main {
-  display: flex;
   justify-content: center; 
   align-items: center;     
 }
@@ -201,7 +202,13 @@ footer{
   background-color: rgba(200, 200, 200, 0.300);
 }
 
+.container-logo{
+  margin: 0 auto;
+  
+}
+
 .container-login{
+  margin: 0 auto;
   background-color: rgba(200, 200, 200, 0.300);
   width: 500px;
   align-self: center;
@@ -231,4 +238,11 @@ footer{
   color: black;
   border: none;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);      
+}
+
+.separador{
+  height: 30px;
+  width: 1px;
+  background: #999;
+  margin: 0 0.5rem;
 }
