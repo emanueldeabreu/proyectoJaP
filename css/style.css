@@ -1,0 +1,46 @@
+/*style.css agregado para los cambios de la entrega 1 en adelante*/
+
+
+.producto{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.producto img{
+    width: 140px;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    margin-right: 20px;
+}
+
+.contInfo{
+    flex: 1;
+    background-color: #F9F9F9;
+}
+
+.info{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.info h3{
+    margin: 5px 0 0;
+    color: #555;
+}
+
+.detalles{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    font-weight: bold;
+    margin-right: 20px;
+}
