@@ -194,13 +194,17 @@ header{
 }
 
 main {
-  display: flex;
   justify-content: center; 
   align-items: center;     
 }
 
 footer{
   background-color: rgba(200, 200, 200, 0.300);
+}
+
+.container-logo{
+  margin: 0 auto;
+  
 }
 
 .container-login{
