@@ -7,10 +7,12 @@ function showProductsList(array) {
   for (let product of array) {
     htmlContentToAppend += `
       <div class="producto">
-        <img src="${product.image}" alt="${product.name}">
+        <div class="imgProducto">
+            <img src="${product.image}" alt="${product.name}">
+        </div>
 
-        <div class="contInfo">
-          <div class="info">
+        <div class="descripcionProducto">
+          <div class="descripcion">
             <h3>${product.name}</h3>
             <p>${product.description}</p>
           </div>
@@ -32,7 +34,7 @@ function showProductsList(array) {
 document.addEventListener("DOMContentLoaded", function (e) {
   getJSONData(PRODUCTS_URL + "101.json").then(function (resultObj) {
     if (resultObj.status === "ok") {
-      productsArray = resultObj.data.products; // en la API está dentro de "products"
+      productsArray = resultObj.data.products; 
       showProductsList(productsArray);
     }
   });
