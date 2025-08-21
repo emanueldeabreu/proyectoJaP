@@ -249,27 +249,72 @@ footer{
 
 .producto {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  gap: 20px;
   margin-bottom: 20px;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #f0f0f0; 
 }
 
-.producto img {
-  width: 250px;
+.imgProducto img {
+  width: 120px;
   height: auto;
-  margin-right: 15px;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
-.contInfo {
+.descripcionProducto {
+  display: flex;
+  flex: 1;
+  gap: 15px;
+}
+
+
+.descripcion {
+  flex: 1;
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.descripcion h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
+
+.descripcion p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+
+.detalles {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: #fff;
+  border-radius: 12px;
+  min-width: 120px;
+  text-align: center;
+  font-weight: bold;
+  overflow: hidden; 
 }
 
-.detalles {
-  margin-top: 10px;
-  font-size: 0.9em;
-  color: gray;
+.detalles .precio {
+  padding: 10px;
+}
+
+
+.detalles .separador {
+  height: 1px;
+  background: #0b0b0b;
+  margin: 0;
+}
+
+
+.detalles .vendidos {
+  padding: 10px;
+  font-size: 0.9rem;
+  color: #555;
 }
