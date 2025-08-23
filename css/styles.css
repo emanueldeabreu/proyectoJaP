@@ -207,12 +207,14 @@ main.login {
   flex: 1;
   display: flex;
   justify-content: center; 
-  align-items: center;     
+  align-items: center;    
+  margin-top: 40px; 
 }
 
 footer{
   background-color: rgba(200, 200, 200, 0.300);
   padding: 1rem;
+  margin-top: 50px;
 }
 
 .container-logo{
