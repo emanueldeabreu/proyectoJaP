@@ -16,8 +16,7 @@ function mostrarAlerta(mensaje) {
   }, 5000);
 }
 
-document.getElementById("btn_login").addEventListener("click", function (e) {
-  e.preventDefault();
+document.getElementById("btn_login").addEventListener("click", function () {
   let usuario = document.getElementById("usuario").value;
   let contrasena = document.getElementById("contrasena").value;
 
