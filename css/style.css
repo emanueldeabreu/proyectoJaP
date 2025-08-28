@@ -1,4 +1,4 @@
-/*style.css agregado para los cambios de la entrega 1 en adelante*/
+/*style.css agregado para los cambios de las entregas*/
 
 
 .producto{
@@ -44,4 +44,31 @@
     font-weight: bold;
     margin-right: 20px;
     font-size: 1.5ex;
+}
+
+@media (max-width: 500px) { /*celulares*/
+    .container-login{
+        width:80%;
+    }
+    footer p{
+        font-size: 3vw;
+    }
+    #btn_login{
+        color: blue; /*manera visual de verlo*/
+    }
+}
+
+@media (min-width: 501px) { /*tabletas y más grande*/
+    .container-login{
+        width: 90%;
+    }
+    .input-login{
+        width: 80%;
+        margin-left: 10%;
+    }
+    #btn_login{
+        color: red; /*manera visual de verlo*/
+        width: 25%;
+        margin-left: 40%;
+    }
 }
