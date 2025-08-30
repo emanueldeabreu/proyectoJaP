@@ -1,4 +1,4 @@
-/*style.css agregado para los cambios de la entrega 1 en adelante*/
+/*style.css agregado para los cambios de las entregas*/
 
 
 .producto{
@@ -45,3 +45,65 @@
     margin-right: 20px;
     font-size: 1.5ex;
 }
+
+@media (max-width: 500px) { /*celulares*/
+    .container-login{
+        width:80%;
+    }
+    footer p{
+        font-size: 3vw;
+    }
+    #btn_login{
+        color: blue; /*manera visual de verlo*/
+    }
+    .producto {
+    flex-direction: column;
+    align-items: stretch; 
+  }
+
+  .imgProducto {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+
+  .imgProducto img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+  }
+
+  .descripcionProducto {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .descripcion,
+  .detalles {
+    width: 100%;
+  }
+
+  .detalles {
+    margin-top: 5px;
+  }
+
+}
+
+@media (min-width: 500px) and (max-width: 1024px){ /*tabletas y más grande*/
+    .container-login{
+        width: 90%;
+    }
+    .input-login{
+        width: 80%;
+        margin-left: 10%;
+    }
+    #btn_login{
+        color: red; /*manera visual de verlo*/
+        width: 25%;
+        margin-left: 40%;
+    }
+
+
+}
+
