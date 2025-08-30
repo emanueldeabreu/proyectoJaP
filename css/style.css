@@ -36,10 +36,6 @@
     color: #555;
 }
 
-form img{ /*login.html*/
-    width: 2vw;
-}
-
 .detalles{ /*products.html*/
     display: flex;
     flex-direction: column;
@@ -50,57 +46,102 @@ form img{ /*login.html*/
     font-size: 1.5ex;
 }
 
-@media (max-width: 500px) { /*celulares*/ /*login.html*/
-    /*header{
-        height: 15%;
-    }*/
+form img{ /*login.html*/
+    width: 2vw;
+}
+
+/*----Responsividad general----*/
+.container-login{
+    width: 50%;
+    margin: 0 auto /*centrado automatico*/
+}
+h4{
+    font-size: 2rem;
+}
+.input-login{
+    width: 100%;
+    height: 3rem;
+    margin: 1rem auto;
+}
+.form-control{
+    height: 3rem;
+}
+.separador{
+    height: 2rem;
+}
+::placeholder{
+    font-size: 1rem;
+}
+#btn_login{
+    color: green; /*manera visual de verlo*/
+    width: 25%;
+    margin-left: 1rem auto;
+    display: block;
+    font-size: 1rem;
+}
+/*----------*/
+
+/*-----Responsivilidad celulares-----*/
+@media (max-width: 540px) {  /*login.html*/
     .container-login{
         width:80%;
     }
     form img{
-        width: 3vh;
+        width: 5vw;
     }
     footer p{
         font-size: 3vw;
     }
-    /*footer{
-        height: 10%;
-    }*/
+    h4{
+        font-size: 1.5rem;
+    }
+    .input-login{
+        width: 100%;
+        height: 2.5rem;
+    }
+    .form-control{
+        height: 2.1rem;
+    }
+    .separador{
+        height: 2rem;
+    }
+    ::placeholder{
+        font-size: 0.9rem;
+    }
     #btn_login{
         color: blue; /*manera visual de verlo*/
+        width: 60%;
+        font-size: 1rem;
     }
 }
+/*------------*/
 
-@media (min-width: 501px) { /*tabletas y más grande*/ /*login.html*/
+/*-----Responsivilidad tabletas------*/
+@media (min-width: 540px) and (max-width: 1023px) { /*login.html*/
     .container-login{
-        width: 50%;
+        width: 70%;
         
     }
     h4{
-        font-size: 2.5vw;
+        font-size: 2rem;
     }
     .input-login{
-        width: 34vw;
-        margin-left: 10.5%;
-        size: 20vh;
+        width: 100%;
+        height: 4rem;
     }
-    /*form{
-        height:22.5vmax;
-    }*/
     .form-control{
-        height: 3vw;
+        height: 3rem;
     }
     .separador{
-        height: 3vw;
+        height: 2.5rem;
     }
     ::placeholder{
-        font-size: 2vw;
+        font-size: 1rem;
     }
     #btn_login{
         color: red; /*manera visual de verlo*/
-        width: 25%;
-        margin-left: 37%;
-        overflow: hidden;
-        font-size: 1.5vw;
+        width: 50%;
+        font-size: 1rem;
     }
 }
+/*--------*/
