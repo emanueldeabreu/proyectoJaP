@@ -1,7 +1,7 @@
 /*style.css agregado para los cambios de las entregas*/
 
 
-.producto{
+.producto{ /*products.html*/
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -11,7 +11,7 @@
     margin-top: 30px;
 }
 
-.producto img{
+.producto img{ /*products.html*/
     width: 140px;
     background-color: #ccc;
     display: flex;
@@ -21,22 +21,26 @@
     margin-right: 20px;
 }
 
-.contInfo{
+.contInfo{ /*products.html*/
     flex: 1;
     background-color: #F9F9F9;
 }
 
-.info{
+.info{ /*products.html*/
     margin-left: 20px;
     margin-top: 10px;
 }
 
-.info h3{
+.info h3{ /*products.html*/
     margin: 5px 0 0;
     color: #555;
 }
 
-.detalles{
+form img{ /*login.html*/
+    width: 2vw;
+}
+
+.detalles{ /*products.html*/
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -46,29 +50,57 @@
     font-size: 1.5ex;
 }
 
-@media (max-width: 500px) { /*celulares*/
+@media (max-width: 500px) { /*celulares*/ /*login.html*/
+    /*header{
+        height: 15%;
+    }*/
     .container-login{
         width:80%;
+    }
+    form img{
+        width: 3vh;
     }
     footer p{
         font-size: 3vw;
     }
+    /*footer{
+        height: 10%;
+    }*/
     #btn_login{
         color: blue; /*manera visual de verlo*/
     }
 }
 
-@media (min-width: 501px) { /*tabletas y más grande*/
+@media (min-width: 501px) { /*tabletas y más grande*/ /*login.html*/
     .container-login{
-        width: 90%;
+        width: 50%;
+        
+    }
+    h4{
+        font-size: 2.5vw;
     }
     .input-login{
-        width: 80%;
-        margin-left: 10%;
+        width: 34vw;
+        margin-left: 10.5%;
+        size: 20vh;
+    }
+    /*form{
+        height:22.5vmax;
+    }*/
+    .form-control{
+        height: 3vw;
+    }
+    .separador{
+        height: 3vw;
+    }
+    ::placeholder{
+        font-size: 2vw;
     }
     #btn_login{
         color: red; /*manera visual de verlo*/
         width: 25%;
-        margin-left: 40%;
+        margin-left: 37%;
+        overflow: hidden;
+        font-size: 1.5vw;
     }
 }
