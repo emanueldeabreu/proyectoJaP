@@ -46,102 +46,34 @@
     font-size: 1.5ex;
 }
 
-form img{ /*login.html*/
-    width: 2vw;
-}
+    .producto {
+    flex-direction: column;
+    align-items: stretch; 
+  }
 
-/*----Responsividad general----*/
-.container-login{
-    width: 50%;
-    margin: 0 auto /*centrado automatico*/
-}
-h4{
-    font-size: 2rem;
-}
-.input-login{
+  .imgProducto {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+
+  .imgProducto img {
     width: 100%;
-    height: 3rem;
-    margin: 1rem auto;
-}
-.form-control{
-    height: 3rem;
-}
-.separador{
-    height: 2rem;
-}
-::placeholder{
-    font-size: 1rem;
-}
-#btn_login{
-    color: green; /*manera visual de verlo*/
-    width: 25%;
-    margin-left: 1rem auto;
-    display: block;
-    font-size: 1rem;
-}
-/*----------*/
+    max-width: 200px;
+    height: auto;
+  }
 
-/*-----Responsivilidad celulares-----*/
-@media (max-width: 540px) {  /*login.html*/
-    .container-login{
-        width:80%;
-    }
-    form img{
-        width: 5vw;
-    }
-    footer p{
-        font-size: 3vw;
-    }
-    h4{
-        font-size: 1.5rem;
-    }
-    .input-login{
-        width: 100%;
-        height: 2.5rem;
-    }
-    .form-control{
-        height: 2.1rem;
-    }
-    .separador{
-        height: 2rem;
-    }
-    ::placeholder{
-        font-size: 0.9rem;
-    }
-    #btn_login{
-        color: blue; /*manera visual de verlo*/
-        width: 60%;
-        font-size: 1rem;
-    }
-}
-/*------------*/
+  .descripcionProducto {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
 
-/*-----Responsivilidad tabletas------*/
-@media (min-width: 540px) and (max-width: 1023px) { /*login.html*/
-    .container-login{
-        width: 70%;
-        
-    }
-    h4{
-        font-size: 2rem;
-    }
-    .input-login{
-        width: 100%;
-        height: 4rem;
-    }
-    .form-control{
-        height: 3rem;
-    }
-    .separador{
-        height: 2.5rem;
-    }
-    ::placeholder{
-        font-size: 1rem;
-    }
-    #btn_login{
-        color: red; /*manera visual de verlo*/
-        width: 50%;
-        font-size: 1rem;
-    }
-}
-/*--------*/
+  .descripcion,
+  .detalles {
+    width: 100%;
+  }
+
+  .detalles {
+    margin-top: 5px;
+  }
