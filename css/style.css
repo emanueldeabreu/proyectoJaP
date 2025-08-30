@@ -1,7 +1,7 @@
 /*style.css agregado para los cambios de las entregas*/
 
 
-.producto{
+.producto{ /*products.html*/
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -11,7 +11,7 @@
     margin-top: 30px;
 }
 
-.producto img{
+.producto img{ /*products.html*/
     width: 140px;
     background-color: #ccc;
     display: flex;
@@ -21,22 +21,22 @@
     margin-right: 20px;
 }
 
-.contInfo{
+.contInfo{ /*products.html*/
     flex: 1;
     background-color: #F9F9F9;
 }
 
-.info{
+.info{ /*products.html*/
     margin-left: 20px;
     margin-top: 10px;
 }
 
-.info h3{
+.info h3{ /*products.html*/
     margin: 5px 0 0;
     color: #555;
 }
 
-.detalles{
+.detalles{ /*products.html*/
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -46,16 +46,6 @@
     font-size: 1.5ex;
 }
 
-@media (max-width: 500px) { /*celulares*/
-    .container-login{
-        width:80%;
-    }
-    footer p{
-        font-size: 3vw;
-    }
-    #btn_login{
-        color: blue; /*manera visual de verlo*/
-    }
     .producto {
     flex-direction: column;
     align-items: stretch; 
@@ -87,23 +77,3 @@
   .detalles {
     margin-top: 5px;
   }
-
-}
-
-@media (min-width: 500px) and (max-width: 1024px){ /*tabletas y más grande*/
-    .container-login{
-        width: 90%;
-    }
-    .input-login{
-        width: 80%;
-        margin-left: 10%;
-    }
-    #btn_login{
-        color: red; /*manera visual de verlo*/
-        width: 25%;
-        margin-left: 40%;
-    }
-
-
-}
-
