@@ -46,6 +46,12 @@
     font-size: 1.5ex;
 }
 
+
+#products-container {
+    display: grid;
+    gap: 20px;
+}
+
 form img{ /*login.html*/
     width: 2vw;
 }
@@ -83,6 +89,7 @@ h4{
 
 /*-----Responsivilidad celulares-----*/
 @media (max-width: 540px) {  /*login.html*/
+
     .container-login{
         width:80%;
     }
@@ -148,8 +155,12 @@ h4{
 }
 /*------------*/
 
+
+@media (min-width: 501px) and (max-width: 1024px) { /*Tableta en Modo Vertical*/ /*login.html*/
+=======
 /*-----Responsivilidad tabletas------*/
 @media (min-width: 540px) and (max-width: 1023px) { /*login.html*/
+  
     .container-login{
         width: 70%;
         
@@ -176,4 +187,18 @@ h4{
         font-size: 1rem;
     }
 }
+
+#products-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 productos por fila */
+    }
+
+
+@media (min-width: 1025px) {
+    /* PRODUCTS */
+    #products-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 /*--------*/
+
