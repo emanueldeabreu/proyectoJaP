@@ -1,10 +1,27 @@
 function cargarDatos() {
   let sesionCheck = localStorage.getItem("sesionActiva");
+  let alerta = document.getElementById("alert-danger");
 
   if (sesionCheck === null) {
+
+    alerta.classList.add("show");
+
+  setTimeout(() => {
+    alerta.classList.remove("show");
     window.open("login.html", "_self");
+  }, 5000);
+  
+  
   }
 }
+
+function usrLocalStorage() {
+  document.getElementById("usrStorage").textContent =
+    localStorage.getItem("usuario");
+}
+
+
+
 
 function mostrarAlerta(mensaje) {
   let alerta = document.getElementById("alert-danger");
@@ -32,5 +49,6 @@ document.getElementById("btn_login").addEventListener("click", function () {
   if (usuario !== "" && contrasena !== "") {
     window.open("index.html", "_self");
     localStorage.setItem("sesionActiva", "si");
+    localStorage.setItem("usuario", usuario);
   }
 });
