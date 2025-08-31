@@ -156,8 +156,6 @@ h4{
 /*------------*/
 
 
-@media (min-width: 501px) and (max-width: 1024px) { /*Tableta en Modo Vertical*/ /*login.html*/
-
 /*-----Responsivilidad tabletas------*/
 @media (min-width: 540px) and (max-width: 1023px) { /*login.html*/
   
@@ -199,6 +197,6 @@ h4{
         grid-template-columns: repeat(4, 1fr);
     }
 }
-}
+
 
 /*--------*/
