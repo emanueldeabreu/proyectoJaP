@@ -36,10 +36,6 @@
     color: #555;
 }
 
-form img{ /*login.html*/
-    width: 2vw;
-}
-
 .detalles{ /*products.html*/
     display: flex;
     flex-direction: column;
@@ -49,6 +45,17 @@ form img{ /*login.html*/
     margin-right: 20px;
     font-size: 1.5ex;
 }
+
+#products-container {
+    display: grid;
+    gap: 20px;
+}
+
+form img{ /*login.html*/
+    width: 2vw;
+}
+
+
 
 @media (max-width: 500px) { /*celulares*/ /*login.html*/
     /*header{
@@ -71,7 +78,25 @@ form img{ /*login.html*/
     }
 }
 
-@media (min-width: 501px) { /*tabletas y más grande*/ /*login.html*/
+#products-container {
+        grid-template-columns: 1fr; 
+    }
+    .producto {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .producto img {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto 15px auto;
+    }
+    .detalles {
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+
+@media (min-width: 501px) and (max-width: 1024px) { /*Tableta en Modo Vertical*/ /*login.html*/
     .container-login{
         width: 50%;
         
@@ -102,5 +127,17 @@ form img{ /*login.html*/
         margin-left: 37%;
         overflow: hidden;
         font-size: 1.5vw;
+    }
+}
+
+#products-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 productos por fila */
+    }
+
+
+@media (min-width: 1025px) {
+    /* PRODUCTS */
+    #products-container {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
