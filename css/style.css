@@ -90,7 +90,7 @@ form img{
 /*-----Responsividad celulares-----*/
 @media (max-width: 540px) {  /*login.html*/
 
-    html, body{        
+   /html, body{        
         margin: 0;
         padding: 0;         /*Manejo de overflow para evitar*/
         overflow-x: hidden;/*deslizar la pantalla*/
@@ -123,10 +123,7 @@ form img{
         font-size: 3vw;
     }
     
-
-
-
-     .producto {
+    .producto {
     flex-direction: column;
     align-items: stretch; 
   }
@@ -190,17 +187,53 @@ form img{
         width: 50%;
         font-size: 1rem;
     }
-}
 
-#products-container {
+    #products-container {
         grid-template-columns: repeat(2, 1fr); /* 2 productos por fila */
     }
+
+    .producto {
+    flex-direction: column;
+    align-items: stretch; 
+  }
+
+  .imgProducto {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+
+  .imgProducto img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+  }
+
+  .descripcionProducto {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .descripcion,
+  .detalles {
+    width: 100%;
+  }
+
+  .detalles {
+    margin-top: 5px;
+  }
+
+
+}
+
+
 
 
 @media (min-width: 1025px) {
     /* PRODUCTS */
     #products-container {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
