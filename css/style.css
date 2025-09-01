@@ -1,7 +1,7 @@
 /*style.css agregado para los cambios de las entregas*/
 
 
-.producto{
+.producto{ /*products.html*/
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -11,7 +11,7 @@
     margin-top: 30px;
 }
 
-.producto img{
+.producto img{ /*products.html*/
     width: 140px;
     background-color: #ccc;
     display: flex;
@@ -21,22 +21,22 @@
     margin-right: 20px;
 }
 
-.contInfo{
+.contInfo{ /*products.html*/
     flex: 1;
     background-color: #F9F9F9;
 }
 
-.info{
+.info{ /*products.html*/
     margin-left: 20px;
     margin-top: 10px;
 }
 
-.info h3{
+.info h3{ /*products.html*/
     margin: 5px 0 0;
     color: #555;
 }
 
-.detalles{
+.detalles{ /*products.html*/
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -46,17 +46,87 @@
     font-size: 1.5ex;
 }
 
-@media (max-width: 500px) { /*celulares*/
-    .container-login{
+#products-container { /*products.html*/
+    display: grid;
+    gap: 20px;
+}
+
+
+
+/*----Responsividad general----*/
+.container-login{ /*contenedor general*/
+    width: 50%;
+    margin: 0 auto /*centrado automatico*/
+}
+h4{
+    font-size: 2rem;
+}
+.input-login{ /*Contenedor del usuario y contraseña*/
+    width: 100%;
+    height: 3rem;
+    margin: 1rem auto;
+}
+form img{ 
+    width: 2vw;
+}
+.separador{
+    height: 2rem;
+}
+.form-control{ /*input para usuario y contraseña*/
+    height: 3rem;
+}
+::placeholder{
+    font-size: 1rem;
+}
+#btn_login{
+    color: green; /*manera visual de verlo*/
+    width: 25%;
+    margin-left: 1rem auto;
+    display: block;
+    font-size: 1rem;
+}
+/*----------*/
+
+/*-----Responsividad celulares-----*/
+@media (max-width: 540px) {  /*login.html*/
+
+    html, body{        
+        margin: 0;
+        padding: 0;         /*Manejo de overflow para evitar*/
+        overflow-x: hidden;/*deslizar la pantalla*/
+    }
+    .container-login{ /*Contenedor general*/
         width:80%;
+    }
+    form img{
+        width: 5vw;
+    }
+    h4{
+        font-size: 1.5rem;
+    }
+    .input-login{ /*contenedor de usuario y contraseña*/
+        width: 100%;
+        height: 2.5rem;
+    }
+    .form-control{ /*Input de usuario y contraseña*/
+        height: 2.1rem;
+    }
+    ::placeholder{
+        font-size: 0.9rem;
+    }
+    #btn_login{
+        color: blue; /*manera visual de verlo*/
+        width: 60%;
+        font-size: 1rem;
     }
     footer p{
         font-size: 3vw;
     }
-    #btn_login{
-        color: blue; /*manera visual de verlo*/
-    }
-    .producto {
+    
+
+
+
+     .producto {
     flex-direction: column;
     align-items: stretch; 
   }
@@ -89,21 +159,50 @@
   }
 
 }
+/*------------*/
 
-@media (min-width: 500px) and (max-width: 1024px){ /*tabletas y más grande*/
+
+/*-----Responsivilidad tabletas------*/
+@media (min-width: 540px) and (max-width: 1023px) { /*login.html*/
+  
     .container-login{
-        width: 90%;
+        width: 70%;
+        
+    }
+    h4{
+        font-size: 2rem;
     }
     .input-login{
-        width: 80%;
-        margin-left: 10%;
+        width: 100%;
+        height: 4rem;
+    }
+    .form-control{
+        height: 3rem;
+    }
+    .separador{
+        height: 2.5rem;
+    }
+    ::placeholder{
+        font-size: 1rem;
     }
     #btn_login{
         color: red; /*manera visual de verlo*/
-        width: 25%;
-        margin-left: 40%;
+        width: 50%;
+        font-size: 1rem;
+    }
+}
+
+#products-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 productos por fila */
     }
 
 
+@media (min-width: 1025px) {
+    /* PRODUCTS */
+    #products-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
+
+/*--------*/

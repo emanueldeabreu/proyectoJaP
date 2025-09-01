@@ -2,7 +2,7 @@
 .card-body,
 .container,
 .site-header {
-  font-family: 'Verdana', serif !important;
+  font-family: "Verdana", serif !important;
 }
 
 .jumbotron .display-4 {
@@ -32,8 +32,8 @@ nav a {
   height: 50vh;
   padding: 5em inherit;
   margin-bottom: 0;
-  background-color: #53C0FB;
-  background: url('../img/cover_back.png');
+  background-color: #53c0fb;
+  background: url("../img/cover_back.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -73,12 +73,12 @@ footer {
 }
 
 footer p {
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
 
 .site-header a {
   color: white;
-  transition: ease-in-out color .15s;
+  transition: ease-in-out color 0.15s;
 }
 
 .site-header .dropdown-menu a {
@@ -86,7 +86,7 @@ footer p {
 }
 
 .dropzone {
-  border: 2px dashed #0087F7;
+  border: 2px dashed #0087f7;
   border-radius: 5px;
   background: white;
 }
@@ -97,10 +97,11 @@ footer p {
 
 .alert {
   position: fixed;
-  top: 80px;
+  top: 20px;
   width: 50%;
   left: 50%;
   transform: translate(-50%, 0);
+  text-align: center;
 }
 
 .lds-ring {
@@ -206,34 +207,35 @@ main.login {
   flex: 1;
   display: flex;
   justify-content: center; 
-  align-items: center;     
+  align-items: center;    
+  margin-top: 40px; 
 }
 
 footer{
   background-color: rgba(200, 200, 200, 0.300);
   padding: 1rem;
+  margin-top: 50px;
 }
 
-.container-logo{
+.container-logo {
   margin: 0 auto;
-  
 }
 
-.container-login{
+.container-login {
   margin: 0 auto;
-  background-color: rgba(200, 200, 200, 0.300);
+  background-color: rgba(200, 200, 200, 0.3);
   width: 500px;
   align-self: center;
   border-radius: 50px;
   padding: 2rem;
 }
 
-.title-login{
+.title-login {
   text-align: center;
   margin-bottom: 2rem;
 }
 
-.input-login{
+.input-login {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
@@ -249,10 +251,10 @@ footer{
   background-color: white;
   color: black;
   border: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);      
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.separador{
+.separador {
   height: 30px;
   width: 1px;
   background: #999;
