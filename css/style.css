@@ -1,42 +1,58 @@
-/*style.css agregado para los cambios de las entregas*/
+/*
+página modificada con arreglos para clasificarlo mejor
+lo que tiene marca **** se agregó pensando en products-info.html
+- Falta modificar la responsividad de products-info.html
+- Revisar que funcione bien con products.html
+- Revisar unidades relativas
+- Realizar/revisar modelo figma "lista de productos" para products-info.html
+*/
 
+/*------------------ Body general ------------------*/
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    background-color: #f0f0f0;
+}
 
-.producto{ /*products.html*/
+/*------------------ Productos en lista ------------------*/
+#products-container {
+    display: grid;
+    gap: 20px;
+}
+
+.producto {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px;
     border-radius: 8px;
-    margin-bottom: 20px;
-    margin-top: 30px;
+    margin: 30px 0 20px 0;
+    background-color: #F9F9F9;
 }
 
-.producto img{ /*products.html*/
+.producto img {
     width: 140px;
     background-color: #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 6px;
     margin-right: 20px;
 }
 
-.contInfo{ /*products.html*/
+.contInfo {
     flex: 1;
-    background-color: #F9F9F9;
 }
 
-.info{ /*products.html*/
+.info {
     margin-left: 20px;
     margin-top: 10px;
 }
 
-.info h3{ /*products.html*/
+.info h3 {
     margin: 5px 0 0;
     color: #555;
 }
 
-.detalles{ /*products.html*/
+.detalles {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -46,196 +62,138 @@
     font-size: 1.5ex;
 }
 
-#products-container { /*products.html*/
-    display: grid;
-    gap: 20px;
+.product-card { /* **** */
+    background-color: white;
+    padding: 40px;
+    width: 100%;          /* ocupa el 80% de la pantalla */
+    min-width: 1200px;   /* no se haga demasiado grande */
+    margin: 40px auto;   /* centrado vertical y horizontal */
+    display: grid;       /* habilita el grid */
+    grid-template-columns: 1fr 1fr; /* dos columnas */
+    gap: 30px;           /* espacio entre columnas y filas */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* opcional: sombra suave */
+}
+.product-name { /* **** */
+    grid-column: 1 / -1;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-
-
-/*----Responsividad general----*/
-.container-login{ /*contenedor general*/
-    width: 50%;
-    margin: 0 auto /*centrado automatico*/
-}
-h4{
-    font-size: 2rem;
-}
-.input-login{ /*Contenedor del usuario y contraseña*/
+.product-main img { /* **** */
     width: 100%;
-    height: 3rem;
-    margin: 1rem auto;
+    border-radius: 5px;
 }
-form img{ 
-    width: 2vw;
-}
-.separador{
-    height: 2rem;
-}
-.form-control{ /*input para usuario y contraseña*/
-    height: 3rem;
-}
-::placeholder{
-    font-size: 1rem;
-}
-#btn_login{
-    color: green; /*manera visual de verlo*/
-    width: 25%;
-    margin-left: 1rem auto;
-    display: block;
-    font-size: 1rem;
-}
-/*----------*/
 
-/*-----Responsividad celulares-----*/
-@media (max-width: 540px) {  /*login.html*/
-
-   /html, body{        
-        margin: 0;
-        padding: 0;         /*Manejo de overflow para evitar*/
-        overflow-x: hidden;/*deslizar la pantalla*/
-    }
-    .container-login{ /*Contenedor general*/
-        width:80%;
-    }
-    form img{
-        width: 5vw;
-    }
-    h4{
-        font-size: 1.5rem;
-    }
-    .input-login{ /*contenedor de usuario y contraseña*/
-        width: 100%;
-        height: 2.5rem;
-    }
-    .form-control{ /*Input de usuario y contraseña*/
-        height: 2.1rem;
-    }
-    ::placeholder{
-        font-size: 0.9rem;
-    }
-    #btn_login{
-        color: blue; /*manera visual de verlo*/
-        width: 60%;
-        font-size: 1rem;
-    }
-    footer p{
-        font-size: 3vw;
-    }
-    
-    .producto {
-    flex-direction: column;
-    align-items: stretch; 
-  }
-
-  .imgProducto {
+.miniatura { /* **** */
     display: flex;
-    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.miniatura img, .add-btn { /* **** */
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.add-btn { /* **** */
+    background-color: #eee;
+    border: none;
+    font-size: 24px;
+    line-height: 50px;
+}
+
+.product-desc { /* **** */
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.desc-title { /* **** */
+    font-weight: bold;
     margin-bottom: 5px;
-  }
-
-  .imgProducto img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-  }
-
-  .descripcionProducto {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .descripcion,
-  .detalles {
-    width: 100%;
-  }
-
-  .detalles {
-    margin-top: 5px;
-  }
-
 }
-/*------------*/
 
+/*------------------ Responsividad ------------------*/
 
-/*-----Responsivilidad tabletas------*/
-@media (min-width: 540px) and (max-width: 1023px) { /*login.html*/
-  
-    .container-login{
-        width: 70%;
-        
-    }
-    h4{
-        font-size: 2rem;
-    }
-    .input-login{
-        width: 100%;
-        height: 4rem;
-    }
-    .form-control{
-        height: 3rem;
-    }
-    .separador{
-        height: 2.5rem;
-    }
-    ::placeholder{
-        font-size: 1rem;
-    }
-    #btn_login{
-        color: red; /*manera visual de verlo*/
-        width: 50%;
-        font-size: 1rem;
-    }
-
+/* Móviles */
+@media (max-width: 540px) {
     #products-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 productos por fila */
+        grid-template-columns: 1fr;
     }
 
     .producto {
-    flex-direction: column;
-    align-items: stretch; 
-  }
+        flex-direction: column;
+        align-items: stretch;
+    }
 
-  .imgProducto {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5px;
-  }
+    .producto img {
+        width: 100%;
+        max-width: 200px;
+        margin-bottom: 5px;
+    }
 
-  .imgProducto img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-  }
+    .descripcion, 
+    .detalles {
+        width: 100%;
+    }
 
-  .descripcionProducto {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
+    .detalles {
+        margin-top: 5px;
+    }
 
-  .descripcion,
-  .detalles {
-    width: 100%;
-  }
-
-  .detalles {
-    margin-top: 5px;
-  }
-
-
+    .product-card { /* **** */
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
 }
 
-
-
-
-@media (min-width: 1025px) {
-    /* PRODUCTS */
+/* Tabletas */
+@media (min-width: 540px) and (max-width: 1023px) {
     #products-container {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .producto {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .producto img {
+        width: 100%;
+        max-width: 200px;
+        margin-bottom: 5px;
+    }
+
+    .descripcion,
+    .detalles {
+        width: 100%;
+    }
+
+    .detalles {
+        margin-top: 5px;
+    }
+
+    .product-card { /* **** */
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    
 }
 
+/* Desktop */
+@media (min-width: 1025px) {
+    #products-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-/*--------*/
+    .product-card { /* **** */
+        width: 700px;
+    }
+}
