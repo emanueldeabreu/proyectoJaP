@@ -39,6 +39,48 @@
     </div>
     </nav>
   <main class="pb-5 container">
+
+
+    <!-- agregado de filtro -->
+     <div class="container">
+      <div class="row">
+        <div>
+          <div>
+            <input type="radio" class="btn-check" name="options" id="ascBtn">
+            <label class="btn btn-light" for="ascBtn"><i class="fas fa-sort-amount-up mr-1"></i></label>
+            <input type="radio" class="btn-check" name="options" id="descBtn">
+            <label class="btn btn-light" for="descBtn"><i class="fas fa-sort-amount-down mr-1"></i></label>
+            <input type="radio" class="btn-check" name="options" id="relevante">
+            <label class="btn btn-light" for="relevante"><i class="fas fa-star mr-1"></i></label>
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <div class="row container p-0 m-0">
+            <div class="col">
+              <p class="font-weight-normal text-end my-2">Precio</p>
+            </div>
+            <div class="col">
+              <input class="form-control" type="number" placeholder="min." id="min-price">
+            </div>
+            <div class="col">
+              <input class="form-control" type="number" placeholder="máx." id="max-price">
+            </div>
+            <div class="col-3 p-0">
+              <div class="btn-group" role="group">
+                <button class="btn btn-light btn-block" id="filtrar">Filtrar</button>
+                <button class="btn btn-link btn-sm" id="limpiar">Limpiar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- agregado de filtro -->
+
+
   <div class="container" id="products-container">
     
   </div>

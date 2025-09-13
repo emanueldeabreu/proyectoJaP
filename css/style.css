@@ -1,5 +1,17 @@
-/*style.css agregado para los cambios de las entregas*/
+/*
+página modificada con arreglos para clasificarlo mejor
+lo que tiene marca **** se agregó pensando en products-info.html
+- Falta modificar la responsividad de products-info.html
+- Revisar que funcione bien con products.html
+- Revisar unidades relativas
+- Realizar/revisar modelo figma "lista de productos" para products-info.html
+*/
 
+/*
+Revisar medidas desde open with liveserver
+*/
+
+/*style.css agregado para los cambios de las entregas*/
 
 .producto{ /*products.html*/
     display: flex;
@@ -51,8 +63,6 @@
     gap: 20px;
 }
 
-
-
 /*----Responsividad general----*/
 .container-login{ /*contenedor general*/
     width: 50%;
@@ -66,7 +76,7 @@ h4{
     height: 3rem;
     margin: 1rem auto;
 }
-form img{ 
+form img{
     width: 2vw;
 }
 .separador{
@@ -85,12 +95,73 @@ form img{
     display: block;
     font-size: 1rem;
 }
+
+.product-card { /* **** */
+        width: 700px;
+    }
+
+.product-card { /* **** */
+    background-color: white;
+    padding: 40px;
+    width: 100%;          /* ocupa el 80% de la pantalla */
+    min-width: 1200px;   /* no se haga demasiado grande */
+    margin: 40px auto;   /* centrado vertical y horizontal */
+    display: grid;       /* habilita el grid */
+    grid-template-columns: 1fr 1fr; /* dos columnas */
+    gap: 30px;           /* espacio entre columnas y filas */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* opcional: sombra suave */
+}
+.product-name { /* **** */
+    grid-column: 1 / -1;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-main img { /* **** */
+    width: 100%;
+    border-radius: 5px;
+}
+
+.miniatura { /* **** */
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.miniatura img, .add-btn { /* **** */
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.add-btn { /* **** */
+    background-color: #eee;
+    border: none;
+    font-size: 24px;
+    line-height: 50px;
+}
+
+.product-desc { /* **** */
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.desc-title { /* **** */
+    font-weight: bold;
+    margin-bottom: 5px;
+}
 /*----------*/
 
 /*-----Responsividad celulares-----*/
 @media (max-width: 540px) {  /*login.html*/
 
-   html, body{        
+   /html, body{        
         margin: 0;
         padding: 0;         /*Manejo de overflow para evitar*/
         overflow-x: hidden;/*deslizar la pantalla*/
@@ -122,49 +193,53 @@ form img{
     footer p{
         font-size: 3vw;
     }
-    
+   
     .producto {
     flex-direction: column;
-    align-items: stretch; 
+    align-items: stretch;
   }
 
-  .imgProducto {
+.imgProducto {
     display: flex;
     justify-content: center;
     margin-bottom: 5px;
   }
 
-  .imgProducto img {
+.imgProducto img {
     width: 100%;
     max-width: 200px;
     height: auto;
   }
 
-  .descripcionProducto {
+.descripcionProducto {
     display: flex;
     flex-direction: column;
     gap: 5px;
   }
 
-  .descripcion,
+.descripcion,
   .detalles {
     width: 100%;
   }
 
-  .detalles {
+.detalles {
     margin-top: 5px;
   }
 
 }
-/*------------*/
 
+.product-card { /* **** */
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+/*------------*/
 
 /*-----Responsivilidad tabletas------*/
 @media (min-width: 540px) and (max-width: 1023px) { /*login.html*/
-  
+ 
     .container-login{
         width: 70%;
-        
+       
     }
     h4{
         font-size: 2rem;
@@ -188,47 +263,48 @@ form img{
         font-size: 1rem;
     }
 
-    #products-container {
+#products-container {
         grid-template-columns: repeat(2, 1fr); /* 2 productos por fila */
     }
 
-    .producto {
+.producto {
     flex-direction: column;
-    align-items: stretch; 
+    align-items: stretch;
   }
 
-  .imgProducto {
+.imgProducto {
     display: flex;
     justify-content: center;
     margin-bottom: 5px;
   }
 
-  .imgProducto img {
+.imgProducto img {
     width: 100%;
     max-width: 200px;
     height: auto;
   }
 
-  .descripcionProducto {
+.descripcionProducto {
     display: flex;
     flex-direction: column;
     gap: 5px;
   }
 
-  .descripcion,
+.descripcion,
   .detalles {
     width: 100%;
   }
 
-  .detalles {
+.detalles {
     margin-top: 5px;
   }
 
+  .product-card { /* **** */
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+    }
 
 }
-
-
-
 
 @media (min-width: 1025px) {
     /* PRODUCTS */
@@ -236,6 +312,4 @@ form img{
         grid-template-columns: repeat(2, 1fr);
     }
 }
-
-
-/*--------*/
+ /*-----------*/
