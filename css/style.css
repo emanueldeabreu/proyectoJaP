@@ -97,59 +97,99 @@ form img{
 }
 
 .product-card { /* **** */
-        width: 700px;
+        width: 1000px;
     }
 
-.product-card { /* **** */
-    background-color: white;
-    padding: 40px;
-    width: 100%;          /* ocupa el 80% de la pantalla */
-    min-width: 1200px;   /* no se haga demasiado grande */
-    margin: 40px auto;   /* centrado vertical y horizontal */
-    display: grid;       /* habilita el grid */
-    grid-template-columns: 1fr 1fr; /* dos columnas */
-    gap: 30px;           /* espacio entre columnas y filas */
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* opcional: sombra suave */
+.product-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;       /* 2 columnas */
+  grid-template-rows: auto auto auto;  /* 3 filas */
+  grid-template-areas: 
+    "name  ."       /* nombre ocupa solo col1 */
+    "image desc"    /* imagen y desc en la misma fila */
+    "mini  .";      /* miniaturas debajo de la imagen */
+  gap: 20px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 40px auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-.product-name { /* **** */
-    grid-column: 1 / -1;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+.product-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centra la imagen en la columna */
+  justify-content: start;
+  gap: 15px;
 }
 
-.product-main img { /* **** */
+.product-name {
+  grid-area: name;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.product-main {
+  grid-area: image;
+}
+
+.product-main img {
     width: 100%;
-    border-radius: 5px;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  
 }
 
-.miniatura { /* **** */
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
+.miniatura {
+  grid-area: mini;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.miniatura img, .add-btn { /* **** */
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
 
-.add-btn { /* **** */
-    background-color: #eee;
-    border: none;
-    font-size: 24px;
-    line-height: 50px;
+.miniatura img, 
+.miniatura .add-btn {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+.add-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+  font-size: 24px;
+  border: none;
+}
+.product-right {
+  background: #e0e0e0;
+  padding: 20px;
+  border-radius: 8px;
+  align-self: start;      /* queda alineado arriba con la imagen */
+  max-width: 500px;       /* 🔑 mismo ancho que la imagen */
+  width: 100%;
+  margin: 0 auto;  
+}
+.desc-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .product-desc { /* **** */
-    background-color: #e0e0e0;
-    padding: 10px;
-    border-radius: 5px;
+  grid-area: desc;      /* ahora solo ocupa la fila de la imagen */
+  background: #e0e0e0;
+  padding: 20px;
+  border-radius: 8px;
 }
 
 .desc-title { /* **** */
@@ -161,7 +201,7 @@ form img{
 /*-----Responsividad celulares-----*/
 @media (max-width: 540px) {  /*login.html*/
 
-   /html, body{        
+   html, body{        
         margin: 0;
         padding: 0;         /*Manejo de overflow para evitar*/
         overflow-x: hidden;/*deslizar la pantalla*/
@@ -228,10 +268,7 @@ form img{
 
 }
 
-.product-card { /* **** */
-        width: 100%;
-        grid-template-columns: 1fr;
-    }
+
 /*------------*/
 
 /*-----Responsivilidad tabletas------*/
