@@ -90,7 +90,7 @@ form img{
 /*-----Responsividad celulares-----*/
 @media (max-width: 540px) {  /*login.html*/
 
-   /html, body{        
+   html, body{        
         margin: 0;
         padding: 0;         /*Manejo de overflow para evitar*/
         overflow-x: hidden;/*deslizar la pantalla*/
