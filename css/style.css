@@ -64,9 +64,9 @@ Revisar medidas desde open with liveserver
 }
 
 /*----Responsividad general----*/
-.container-login{ /*contenedor general*/
+.container-login{ /*contenedor general*/ 
     width: 50%;
-    margin: 0 auto /*centrado automatico*/
+    margin: 0 auto /*centrado automatico*/ 
 }
 h4{
     font-size: 2rem;
@@ -88,13 +88,15 @@ form img{
 ::placeholder{
     font-size: 1rem;
 }
+
 #btn_login{
-    color: green; /*manera visual de verlo*/
+    color: green;  /*manera visual de verlo*/
     width: 25%;
     margin-left: 1rem auto;
     display: block;
     font-size: 1rem;
 }
+
 
 .product-card { /* **** */
         width: 1000px;

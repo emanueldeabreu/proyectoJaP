@@ -8,8 +8,8 @@ function cargarDatos() {
 
   setTimeout(() => {
     alerta.classList.remove("show");
-    window.open("login.html", "_self");
-  }, 5000);
+    window.open("loginB.html", "_self");
+  }, 1500);
   
   
   }
@@ -33,22 +33,21 @@ function mostrarAlerta(mensaje) {
   }, 5000);
 }
 
-document.getElementById("btn_login").addEventListener("click", function () {
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+  e.preventDefault(); // 🚫 Detiene que el form recargue la página
+
   let usuario = document.getElementById("usuario").value;
   let contrasena = document.getElementById("contrasena").value;
 
   if (usuario === "" && contrasena === "") {
     mostrarAlerta("Por favor no deje campos en blanco.");
-  }
-  if (usuario === "" && contrasena !== "") {
+  } else if (usuario === "" && contrasena !== "") {
     mostrarAlerta("Por favor introducir nombre de usuario.");
-  }
-  if (usuario !== "" && contrasena === "") {
+  } else if (usuario !== "" && contrasena === "") {
     mostrarAlerta("Por favor introducir contraseña.");
-  }
-  if (usuario !== "" && contrasena !== "") {
-    window.open("index.html", "_self");
+  } else {
     localStorage.setItem("sesionActiva", "si");
     localStorage.setItem("usuario", usuario);
+    window.location.href = "index.html"; // ✅ Redirige correctamente
   }
 });
