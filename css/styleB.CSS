@@ -1,0 +1,47 @@
+nav{
+    background-color: #06141b;
+}
+
+footer{
+    width: 100%;
+    color: #c8d9e6;
+}
+
+#bodyLogin {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to left, #4a5e6a 50%, #9ba8ab 50%);
+}
+
+h1{
+    color: #f9f9f9;
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4rem;
+}
+
+h2{
+    color: white;
+    font-family: "Merriweather", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+a{
+    color: #06141b;
+}
+
+a:hover{
+    color: #7da0ca;
+}
+
+#usrStorage{
+    padding: 1.2rem;
+}
+
+#usrStorage{
+    color: white;
+}
