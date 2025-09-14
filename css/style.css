@@ -64,9 +64,9 @@ Revisar medidas desde open with liveserver
 }
 
 /*----Responsividad general----*/
-.container-login{ /*contenedor general*/ 
+.container-login{ /*contenedor general*/
     width: 50%;
-    margin: 0 auto /*centrado automatico*/ 
+    margin: 0 auto /*centrado automatico*/
 }
 h4{
     font-size: 2rem;
@@ -90,13 +90,12 @@ form img{
 }
 
 #btn_login{
-    color: green;  /*manera visual de verlo*/
+    color: green; /*manera visual de verlo*/
     width: 25%;
     margin-left: 1rem auto;
     display: block;
     font-size: 1rem;
 }
-
 
 .product-card { /* **** */
         width: 1000px;
@@ -135,6 +134,7 @@ form img{
 
 .product-main {
   grid-area: image;
+  height: 100%;
 }
 
 .product-main img {
@@ -152,6 +152,7 @@ form img{
   gap: 10px;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 
@@ -176,8 +177,8 @@ form img{
   background: #e0e0e0;
   padding: 20px;
   border-radius: 8px;
-  align-self: start;      /* queda alineado arriba con la imagen */
-  max-width: 500px;       /* 🔑 mismo ancho que la imagen */
+  align-self: start;      
+  max-width: 500px;       
   width: 100%;
   margin: 0 auto;  
 }
@@ -188,16 +189,69 @@ form img{
 }
 
 .product-desc { /* **** */
-  grid-area: desc;      /* ahora solo ocupa la fila de la imagen */
+  grid-area: desc;      
   background: #e0e0e0;
   padding: 20px;
   border-radius: 8px;
+   height: 100%;         /* NUEVO: que ocupe toda la altura disponible */
+  display: flex;        /* Para que su contenido se ordene verticalmente */
+  flex-direction: column;
+  justify-content: space-between; /* Opcional: para distribuir bien el contenido */
 }
 
 .desc-title { /* **** */
     font-weight: bold;
     margin-bottom: 5px;
 }
+.image-viewer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-viewer img {
+  max-width: 100%;
+  max-height: 500px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+  user-select: none;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.thumb {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.thumb.active {
+  border-color: #007bff;
+}
+
 /*----------*/
 
 /*-----Responsividad celulares-----*/

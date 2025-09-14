@@ -12,32 +12,40 @@ function showProductsList(array) {
 
   for (let product of array) {
     htmlContentToAppend += `
-  <div class="producto">
-    <div class="imgProducto">
-      <img src="${product.image}" alt="${product.name}">
-    </div>
+      <div class="producto" data-id="${product.id}" style="cursor: pointer;">
+        <div class="imgProducto">
+          <img src="${product.image}" alt="${product.name}">
+        </div>
 
-    <div class="descripcionProducto">
-      <!-- Caja blanca curva con nombre + descripción -->
-      <div class="descripcion">
-        <h3>${product.name}</h3>
-        <p>${product.description}</p>
+        <div class="descripcionProducto">
+          <div class="descripcion">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+          </div>
+          <div class="detalles">
+            <div class="precio">${product.currency} ${product.cost}</div>
+            <div class="separador"></div>
+            <div class="vendidos">${product.soldCount} vendidos</div>
+          </div>
+        </div>
       </div>
-
-      <!-- Caja curva separada con precio y cantidad -->
-      <div class="detalles">
-        <div class="precio">${product.currency} ${product.cost}</div>
-        <div class="separador"></div>
-        <div class="vendidos">${product.soldCount} vendidos</div>
-      </div>
-    </div>
-  </div>
-`;
-
+    `;
   }
 
-  document.getElementById("products-container").innerHTML = htmlContentToAppend;
+  const container = document.getElementById("products-container");
+  container.innerHTML = htmlContentToAppend;
+
+  // Agregar evento click a cada producto
+  const productos = container.querySelectorAll(".producto");
+  productos.forEach((producto) => {
+    producto.addEventListener("click", function () {
+      const productId = this.getAttribute("data-id");
+      localStorage.setItem("productID", productId); // Guardamos ID del producto
+      window.location.href = "product-info.html"; // Redirigimos
+    });
+  });
 }
+
 //NO MODIFICADO
 
 
