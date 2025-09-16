@@ -87,7 +87,26 @@ function filterAndShowProducts() {
 document.addEventListener("DOMContentLoaded", function () {
   // Recuperamos el id de categoría desde localStorage
   let catID = localStorage.getItem("catID") || 101;
+// desde aqui 
+  // Buscador en tiempo real
+  document.getElementById("buscador").addEventListener("input", function () {
+    const texto = this.value.toLowerCase();
+    const productos = document.querySelectorAll(".producto");
 
+    productos.forEach(producto => {
+      const nombre = producto.querySelector("h3").textContent.toLowerCase();
+      const descripcion = producto.querySelector("p").textContent.toLowerCase();
+
+      if (nombre.includes(texto) || descripcion.includes(texto)) {
+        producto.style.display = "";
+      } else {
+        producto.style.display = "none";
+      }
+    });
+  });
+
+
+//hasta aqui
   // Pedimos los productos
   getJSONData(PRODUCTS_URL + catID + ".json").then(function (resultObj) {
     if (resultObj.status === "ok") {
