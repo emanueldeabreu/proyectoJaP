@@ -62,17 +62,34 @@ const ORDER_BY_SOLD = "Sold";
 
 
 ////---funciona bien
+let lastSort = null;   // último criterio usado
+let isFiltered = false; // si el array está ordenado con ese criterio
+
 function sortProducts(criterio, array) {
   let result = [...array];
-  if (criterio === ORDER_BY_PRICE_ASC) {
+
+  if (lastSort === criterio && isFiltered) {
+    // Si ya estaba ordenado por este criterio, reseteamos
+    lastSort = null;
+    isFiltered = false;
+    return result;
+  }
+
+  // Aplicamos el criterio
+  if (criterio === ORDER_BY_SOLD) {
+    result.sort((a, b) => b.soldCount - a.soldCount);
+  } else if (criterio === ORDER_BY_PRICE_ASC) {
     result.sort((a, b) => parseFloat(a.cost) - parseFloat(b.cost));
   } else if (criterio === ORDER_BY_PRICE_DESC) {
     result.sort((a, b) => parseFloat(b.cost) - parseFloat(a.cost));
-  } else if (criterio === ORDER_BY_SOLD) {
-    result.sort((a, b) => b.soldCount - a.soldCount);
   }
+
+  lastSort = criterio;
+  isFiltered = true;
   return result;
 }
+
+
 ////---
 
 function filterAndShowProducts() {

@@ -30,12 +30,12 @@ h2{
     font-variation-settings: "wdth" 100;
 }
 
-a{
+#container-login a{
     color: #06141b;
 }
 
-a:hover{
-    color: #7da0ca;
+#container-login a:hover{
+    color: #1da9cd;
 }
 
 #usrStorage{
@@ -44,4 +44,26 @@ a:hover{
 
 #usrStorage{
     color: white;
+}
+
+/* Que html y body ocupen toda la altura de la ventana */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* El main crece para ocupar el espacio disponible */
+main {
+  flex: 1;
+}
+
+/* Footer abajo siempre */
+footer {
+  background-color: #0b0b0b;
+  color: #c8d9e6;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
 }

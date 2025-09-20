@@ -231,6 +231,10 @@ form img{
   user-select: none;
 }
 
+nav{
+  margin-bottom: 1rem;
+}
+
 .prev-btn {
   left: 10px;
 }

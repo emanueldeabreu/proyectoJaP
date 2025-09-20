@@ -1,3 +1,4 @@
+
 function cargarDatos() {
   let sesionCheck = localStorage.getItem("sesionActiva");
   let alerta = document.getElementById("alert-danger");
@@ -34,7 +35,7 @@ function mostrarAlerta(mensaje) {
 }
 
 document.getElementById("loginForm").addEventListener("submit", function(e) {
-  e.preventDefault(); // 🚫 Detiene que el form recargue la página
+  e.preventDefault(); // Detiene que el form recargue la página
 
   let usuario = document.getElementById("usuario").value;
   let contrasena = document.getElementById("contrasena").value;
@@ -48,6 +49,6 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
   } else {
     localStorage.setItem("sesionActiva", "si");
     localStorage.setItem("usuario", usuario);
-    window.location.href = "index.html"; // ✅ Redirige correctamente
+    window.location.href = "index.html"; // Redirige correctamente
   }
 });

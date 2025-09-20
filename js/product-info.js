@@ -23,33 +23,41 @@ document.addEventListener("DOMContentLoaded", function () {
 function renderProductInfo(product) {
   let currentImageIndex = 0;
 
-  function renderImageViewer(images) {
+  function renderImageViewer(images) { //Funcion que carga la imagen principal y las relacionadas
     return `
       <div class="image-viewer">
         <button class="nav-btn prev-btn">&larr;</button>
-        <img id="main-image" src="${images[0]}" alt="${product.name}">
+        <img id="main-image" class="row" src="${images[0]}" alt="${product.name}">
         <button class="nav-btn next-btn">&rarr;</button>
       </div>
-      <div class="miniatura">
+      <div class="miniatura row-4">
         ${images.map((img, i) => `<img src="${img}" class="thumb ${i === 0 ? 'active' : ''}" data-index="${i}" alt="miniatura">`).join("")}
       </div>
     `;
   }
 
   document.querySelector("main").innerHTML = `
-    <div class="product-card">
-      <div class="product-name">${product.name}</div>
+    <div class="product-card row">
+      <div class="product-name col-xl-12">${product.name}</div>
 
-      <div class="product-main">
+      <div class="product-main row">
         ${renderImageViewer(product.images)}
       </div>
 
-      <div class="product-desc">
-        <div class="desc-title">Descripción</div>
-        <p>${product.description}</p>
-        <p><strong>Precio:</strong> ${product.currency} ${product.cost}</p>
-        <p><strong>Cantidad de vendidos:</strong> ${product.soldCount}</p>
-        <p><strong>Categoría:</strong> ${product.category}</p>
+      <div class="product-desc col-xl-12">
+        <div class="row">
+          <div class="desc-title col-12">
+            Descripción
+          </div>
+          <p class="col-12">
+            ${product.description}
+          </p>
+          <p class="col-12">
+            <strong>Precio:</strong> ${product.currency} ${product.cost}
+          </p>
+          <p><strong>Cantidad de vendidos:</strong> ${product.soldCount}</p>
+          <p><strong>Categoría:</strong> ${product.category}</p>
+        </div>
       </div>
     </div>
   `;
