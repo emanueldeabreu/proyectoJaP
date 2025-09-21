@@ -13,6 +13,12 @@ Revisar medidas desde open with liveserver
 
 /*style.css agregado para los cambios de las entregas*/
 
+body{
+  min-height: 100vh;
+  position:relative;
+
+}
+
 .producto{ /*products.html*/
     display: flex;
     align-items: center;
@@ -444,8 +450,8 @@ nav{
 footer {
   background-color: #0b0b0b;
   height: 4rem;
-  position: absolute;
   bottom: 0;
   width: 100%;
   float: inline-end;
+  margin-top: 1rem;
 }
