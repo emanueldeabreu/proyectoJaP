@@ -25,38 +25,42 @@ function renderProductInfo(product) {
 
   function renderImageViewer(images) { //Funcion que carga la imagen principal y las relacionadas
     return `
-      <div class="image-viewer">
+      <div class="image-viewer" id="image_viewer">
         <button class="nav-btn prev-btn">&larr;</button>
         <img id="main-image" class="row" src="${images[0]}" alt="${product.name}">
         <button class="nav-btn next-btn">&rarr;</button>
       </div>
-      <div class="miniatura row-4">
+      <div class="miniatura" id="miniatura">
         ${images.map((img, i) => `<img src="${img}" class="thumb ${i === 0 ? 'active' : ''}" data-index="${i}" alt="miniatura">`).join("")}
       </div>
     `;
   }
 
   document.querySelector("main").innerHTML = `
-    <div class="product-card row">
-      <div class="product-name col-xl-12">${product.name}</div>
+    <div class="product-card" id="info_container">
+      <div class="product-name" id="info_name">${product.name}</div>
 
-      <div class="product-main row">
+      <div class="product-main" id="info_img">
         ${renderImageViewer(product.images)}
       </div>
 
-      <div class="product-desc col-xl-12">
-        <div class="row">
-          <div class="desc-title col-12">
+      <div class="product-desc">
+        <div>
+          <div class="desc-title" id="description">
             Descripción
           </div>
-          <p class="col-12">
+          <p>
             ${product.description}
           </p>
-          <p class="col-12">
+          <p id="costo">
             <strong>Precio:</strong> ${product.currency} ${product.cost}
           </p>
-          <p><strong>Cantidad de vendidos:</strong> ${product.soldCount}</p>
-          <p><strong>Categoría:</strong> ${product.category}</p>
+          <p id="vendidos">
+            <strong>Cantidad de vendidos:</strong> ${product.soldCount}
+          </p>
+          <p id="categoría">
+            <strong>Categoría:</strong> ${product.category}
+          </p>
         </div>
       </div>
     </div>
