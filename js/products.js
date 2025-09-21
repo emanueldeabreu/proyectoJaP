@@ -6,7 +6,7 @@
 //NO MODIFICADO
 let productsArray = [];
 
-// función que recibe un array de productos y lo muestra en pantalla con DOM
+// función que recibe un array de productos y lo muestra en pantalla
 function showProductsList(array) {
   let htmlContentToAppend = "";
 
@@ -112,6 +112,7 @@ function filterAndShowProducts() {
 document.addEventListener("DOMContentLoaded", function () {
   // Recuperamos el id de categoría desde localStorage
   let catID = localStorage.getItem("catID") || 101;
+  
 // desde aqui 
   // Buscador en tiempo real
   document.getElementById("buscador").addEventListener("input", function () {
@@ -132,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 //hasta aqui
+
   // Pedimos los productos
   getJSONData(PRODUCTS_URL + catID + ".json").then(function (resultObj) {
     if (resultObj.status === "ok") {
