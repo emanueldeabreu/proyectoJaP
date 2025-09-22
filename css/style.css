@@ -334,7 +334,7 @@ nav{
     margin-top: 5px;
   }
 
-  #info_container{
+  #info_container{ /*product-info*/
     width: 90%;
     display: flex;
     flex-wrap: wrap;
@@ -428,7 +428,7 @@ nav{
           grid-template-columns: 1fr 1fr;
       }
     
-    #miniatura{
+    #miniatura{ /*product-info*/
       display: flex;
     }
 
