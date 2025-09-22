@@ -1,11 +1,6 @@
-nav{
-    background-color: #06141b;
-}
-
-
 #bodyLogin {
   margin: 0;
-  height: 100vh;
+  max-height: 100vh;
   background: linear-gradient(to left, #4a5e6a 50%, #9ba8ab 50%);
 }
 
