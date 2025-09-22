@@ -292,6 +292,7 @@ nav{
         width: 60%;
         font-size: 1rem;
     }
+    
     footer p{
         font-size: 3vw;
     }
@@ -357,7 +358,6 @@ nav{
 @media (min-width: 540px) and (max-width: 1023px) { /*login.html*/
     .container-login{
         width: 70%;
-       
     }
     h4{
         font-size: 2rem;
@@ -440,12 +440,12 @@ nav{
 }
  /*-----------*/
 
- /*FOOTER*/
+/*FOOTER*/
 footer {
-  background-color: #0b0b0b;
-  height: 4rem;
+  background-color: #ffffff;
+  height: 2rem;
   position: absolute;
   bottom: 0;
   width: 100%;
   float: inline-end;
-}
+} 
