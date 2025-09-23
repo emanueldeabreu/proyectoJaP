@@ -77,15 +77,37 @@ body {
 }
 
 /*----Responsividad general----*/
-.container-login {
-	/*contenedor general*/
-	width: 50%;
-	margin: 0 auto
-		/*centrado automatico*/
+
+#child-login{
+  display: grid;
+  grid-template-columns: 60% 40%;
+  overflow: hidden;
+}
+
+#child-login #Bienvenido{
+  display: table;
+}
+
+#Bienvenido div{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#Bienvenido h1{
+  font-size: 4rem;
+}
+
+#child-login #login-section{
+  display: table;
+}
+
+#child-login #login{
+  transform: translateY(30%);
 }
 
 #bodyLogin {
 	background: linear-gradient(to left, #4a5e6a 50%, #9ba8ab 50%);
+  display: grid;
 }
 
 h4 {
