@@ -324,3 +324,71 @@ main.login {
   font-size: 0.9rem;
   color: #555;
 }
+
+/*------------- estrellas de calificacion --------------*/
+.rating .stars {
+  direction: rtl;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.rating .stars input {
+  display: none;
+}
+
+.rating .stars label {
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2px;
+}
+
+.rating .stars input:checked ~ label i,
+.rating .stars label:hover i,
+.rating .stars label:hover ~ label i {
+  color: gold;
+}
+.rating {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 20px; /* separación vertical */
+  margin-right: 300px; /* separación desde el borde derecho */
+}
+
+/* ------ responsibidad del apartado calificaciones --------------- */
+
+.rating {
+  display: flex;
+  justify-content: flex-end;   
+  align-items: center;
+  margin-top: 20px;
+  margin-right: 300px;        
+  --rating-nudge: -10px; /* <-- cambia este valor (px) para mover más o menos */
+  transform: translateX(var(--rating-nudge));
+  transition: transform 0.12s ease;
+}
+
+/* media queries para que no se salga en pantallas chicas */
+@media (max-width: 768px) {
+  .rating {
+    margin-right: 100px;     
+    --rating-nudge: 10px;    /* menos nudge en tablet */
+  }
+}
+
+@media (max-width: 480px) {
+  .rating {
+    justify-content: center; /* en celular lo centramos */
+    margin-right: 0;
+    transform: none;         /* deshabilitamos el nudge en móvil */
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
