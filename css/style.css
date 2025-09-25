@@ -79,35 +79,74 @@ body {
 /*----Responsividad general----*/
 
 #child-login{
-  display: grid;
-  grid-template-columns: 60% 40%;
-  overflow: hidden;
+	display: grid;
+	grid-template-columns: 60% 40%;
+	overflow: hidden;
 }
 
 #child-login #Bienvenido{
-  display: table;
+  	display: table;
 }
 
 #Bienvenido div{
-  display: table-cell;
-  vertical-align: middle;
+	display: table-cell;
+	vertical-align: middle;
 }
 
 #Bienvenido h1{
-  font-size: 4rem;
+	color: oklch(0.96 0.03 239);
+}
+
+#Bienvenido h1{
+	font-size: 4rem;
+}
+
+#Bienvenido a{
+	color: oklch(0.76 0.1 239);
+}
+
+#Bienvenido a:hover{
+	color: oklch(0.85 0.1 239);
+	color: oklch(lightness chroma hue);
 }
 
 #child-login #login-section{
-  display: table;
+	display: table;
 }
 
 #child-login #login{
-  transform: translateY(30%);
+	transform: translateY(30%);
 }
 
 #bodyLogin {
-	background: linear-gradient(to left, #4a5e6a 50%, #9ba8ab 50%);
-  display: grid;
+	background: linear-gradient(to left, oklch(0.96 0.01 239) 50%, oklch(57.182% 0.20352 257.075) 50%);
+	display: grid;
+
+}
+
+#bodyLogin p, h1, h2{
+	font-size: ;
+
+}
+
+#enter-login{
+	display: flex;
+}
+
+#forgot-psw{
+	display: flex;
+	flex-direction: row-reverse;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+#forgot-psw a{
+	position: absolute;
+	align-items: right;
+	top:60%;
+	height: 10%;
+	left: 50%;
+	right: 0%;
 }
 
 h4 {
