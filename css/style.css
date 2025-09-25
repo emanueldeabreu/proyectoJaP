@@ -349,6 +349,98 @@ nav {
 /*----------*/
 
 /*-----Responsividad celulares-----*/
+
+@media (max-width: 540px) {  /*login.html*/
+
+   html, body{        
+        margin-top: 4rem 0;
+        padding: 0;         /*Manejo de overflow para evitar*/
+        overflow-x: hidden;/*deslizar la pantalla*/
+        min-height: 100vh;
+        position: relative;
+    }
+    .container-login{ /*Contenedor general*/
+        width:80%;
+    }
+    form img{
+        width: 5vw;
+    }
+    h4{
+        font-size: 1.5rem;
+    }
+    .input-login{ /*contenedor de usuario y contraseña*/
+        width: 100%;
+        height: 2.5rem;
+    }
+    .form-control{ /*Input de usuario y contraseña*/
+        height: 2.1rem;
+    }
+    ::placeholder{
+        font-size: 0.9rem;
+    }
+    #btn_login{
+        color: blue; /*manera visual de verlo*/
+        width: 60%;
+        font-size: 1rem;
+    }
+    
+    footer p{
+        font-size: 3vw;
+    }
+   
+    .producto {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+.imgProducto {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+
+.imgProducto img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+  }
+
+.descripcionProducto {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+.descripcion,
+  .detalles {
+    width: 100%;
+  }
+
+.detalles {
+    margin-top: 5px;
+  }
+
+  #info_container{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #info_name{
+    font-size: large;
+  }
+  .miniatura{
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  #image_viewer{
+    width: 75vw;
+    margin: 0;
+  }
+  #miniatura img{
+    width: 15vw;
+    height: 15vw;
+  }
+
 @media (max-width: 540px) {
 	/*login.html*/
 
@@ -465,6 +557,81 @@ nav {
 /*------------*/
 
 /*-----Responsivilidad tabletas------*/
+@media (min-width: 540px) and (max-width: 1023px) { /*login.html*/
+    .container-login{
+        width: 70%;
+    }
+    h4{
+        font-size: 2rem;
+    }
+    .input-login{
+        width: 100%;
+        height: 4rem;
+    }
+    .form-control{
+        height: 3rem;
+    }
+    .separador{
+        height: 2.5rem;
+    }
+    ::placeholder{
+        font-size: 1rem;
+    }
+    #btn_login{
+        color: red; /*manera visual de verlo*/
+        width: 50%;
+        font-size: 1rem;
+    }
+
+    #products-container {
+          grid-template-columns: repeat(2, 1fr); /* 2 productos por fila */
+      }
+
+    .producto {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+    .imgProducto {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5px;
+      }
+
+    .imgProducto img {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+      }
+
+    .descripcionProducto {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+    .descripcion,
+      .detalles {
+        width: 100%;
+      }
+
+    .detalles {
+        margin-top: 5px;
+      }
+
+    .product-card { /* **** */
+          width: 100%;
+          grid-template-columns: 1fr 1fr;
+      }
+    
+    #miniatura{
+      display: flex;
+    }
+
+    #miniatura img{
+      max-width: 20%;
+      max-height: 20%;
+    }
 @media (min-width: 540px) and (max-width: 1023px) {
 
 	/*login.html*/
@@ -563,6 +730,15 @@ nav {
 	}
 }
 
+/*FOOTER*/
+footer {
+  background-color: #ffffff;
+  height: 2rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  float: inline-end;
+} 
 /*-----------*/
 
 /*FOOTER*/

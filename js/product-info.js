@@ -23,6 +23,9 @@ document.addEventListener("DOMContentLoaded", function () {
 function renderProductInfo(product) {
   let currentImageIndex = 0;
 
+  
+  
+
   function renderImageViewer(images) { //Funcion que carga la imagen principal y las relacionadas
     return `
       <div class="image-viewer" id="image_viewer">
@@ -41,6 +44,8 @@ function renderProductInfo(product) {
       <div class="product-name" id="info_name">${product.name}</div>
 
       <div class="product-main" id="info_img">
+
+      
         ${renderImageViewer(product.images)}
       </div>
 
@@ -66,6 +71,32 @@ function renderProductInfo(product) {
     </div>
   `;
 
+ // --- BLOQUE DE CALIFICACIÓN ---
+  const main = document.querySelector("main");
+  const ratingHTML = `
+    <div class="rating d-flex align-items-center mt-3">
+      <label class="me-2 fw-bold">Calificación:</label>
+      <div class="stars" role="radiogroup" aria-label="Calificación del producto">
+        <input type="radio" id="star5" name="rating" value="5">
+        <label for="star5" title="5"><i class="bi bi-star-fill"></i></label>
+
+        <input type="radio" id="star4" name="rating" value="4">
+        <label for="star4" title="4"><i class="bi bi-star-fill"></i></label>
+
+        <input type="radio" id="star3" name="rating" value="3">
+        <label for="star3" title="3"><i class="bi bi-star-fill"></i></label>
+
+        <input type="radio" id="star2" name="rating" value="2">
+        <label for="star2" title="2"><i class="bi bi-star-fill"></i></label>
+
+        <input type="radio" id="star1" name="rating" value="1">
+        <label for="star1" title="1"><i class="bi bi-star-fill"></i></label>
+      </div>
+    </div>
+  `;
+  main.insertAdjacentHTML('beforeend', ratingHTML);
+
+  
   // Funcionalidad de navegación
   const mainImage = document.getElementById("main-image");
   const thumbs = document.querySelectorAll(".thumb");
