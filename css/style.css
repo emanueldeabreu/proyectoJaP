@@ -85,7 +85,7 @@ body {
 }
 
 #child-login #Bienvenido{
-  	display: table;
+display: table;
 }
 
 #Bienvenido div{
@@ -125,7 +125,7 @@ body {
 }
 
 #bodyLogin p, h1, h2{
-	font-size: ;
+	font-size: 1rem;
 
 }
 
@@ -350,229 +350,113 @@ nav {
 
 /*-----Responsividad celulares-----*/
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-@media (max-width: 540px) {  /*login.html*/
-
->>>>>>> c35e92dbc0b259a7c1bda15ff17adc88c2382f6c
-   html, body{        
+@media (max-width: 540px) {
+    html, body {        
         margin-top: 4rem 0;
-        padding: 0;         /*Manejo de overflow para evitar*/
-        overflow-x: hidden;/*deslizar la pantalla*/
+        padding: 0;
+        overflow-x: hidden;
         min-height: 100vh;
         position: relative;
     }
-    .container-login{ /*Contenedor general*/
-        width:80%;
+
+    .container-login {
+        width: 80%;
     }
-    form img{
+
+    form img {
         width: 5vw;
     }
-    h4{
+
+    h4 {
         font-size: 1.5rem;
     }
-    .input-login{ /*contenedor de usuario y contraseña*/
+
+    .input-login {
         width: 100%;
         height: 2.5rem;
     }
-    .form-control{ /*Input de usuario y contraseña*/
+
+    .form-control {
         height: 2.1rem;
     }
-    ::placeholder{
+
+    ::placeholder {
         font-size: 0.9rem;
     }
-    #btn_login{
-        color: blue; /*manera visual de verlo*/
+
+    #btn_login {
+        color: blue;
         width: 60%;
         font-size: 1rem;
     }
-    
-    footer p{
+
+    footer p {
         font-size: 3vw;
     }
-   
+
     .producto {
-    flex-direction: column;
-    align-items: stretch;
-  }
-<<<<<<< HEAD
-=======
-=======
+        flex-direction: column;
+        align-items: stretch;
+    }
 
-.imgProducto {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5px;
-  }
+    .imgProducto {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5px;
+    }
 
-.imgProducto img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-  }
+    .imgProducto img {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+    }
 
-.descripcionProducto {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
+    .descripcionProducto {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
 
-.descripcion,
-  .detalles {
-    width: 100%;
-  }
+    .descripcion,
+    .detalles {
+        width: 100%;
+    }
 
-.detalles {
-    margin-top: 5px;
-  }
+    .detalles {
+        margin-top: 5px;
+    }
 
-  #info_container{
-    width: 90%;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  #info_name{
-    font-size: large;
-  }
-  .miniatura{
-    display: flex;
-    flex-wrap: nowrap;
-  }
-  #image_viewer{
-    width: 75vw;
-    margin: 0;
-  }
-  #miniatura img{
-    width: 15vw;
-    height: 15vw;
-  }
+    #info_container {
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-@media (max-width: 540px) {
-	/*login.html*/
+    #info_name {
+        font-size: large;
+    }
 
->>>>>>> c35e92dbc0b259a7c1bda15ff17adc88c2382f6c
-	html,
-	body {
-		margin-top: 4rem 0;
-		padding: 0;
-		/*Manejo de overflow para evitar*/
-		overflow-x: hidden;
-		/*deslizar la pantalla*/
-		min-height: 100vh;
-		position: relative;
-	}
-<<<<<<< HEAD
->>>>>>> dd6097c6469a2ebc6517f84b3bab2d547b1f9086
-=======
->>>>>>> c35e92dbc0b259a7c1bda15ff17adc88c2382f6c
+    .miniatura {
+        display: flex;
+        flex-wrap: nowrap;
+    }
 
-	.container-login {
-		/*Contenedor general*/
-		width: 80%;
-	}
+    #image_viewer {
+        width: 75vw;
+        margin: 0;
+    }
 
-	form img {
-		width: 5vw;
-	}
-
-	h4 {
-		font-size: 1.5rem;
-	}
-
-	.input-login {
-		/*contenedor de usuario y contraseña*/
-		width: 100%;
-		height: 2.5rem;
-	}
-
-	.form-control {
-		/*Input de usuario y contraseña*/
-		height: 2.1rem;
-	}
-
-	::placeholder {
-		font-size: 0.9rem;
-	}
-
-	#btn_login {
-		color: blue;
-		/*manera visual de verlo*/
-		width: 60%;
-		font-size: 1rem;
-	}
-
-	footer p {
-		font-size: 3vw;
-	}
-
-	.producto {
-		flex-direction: column;
-		align-items: stretch;
-	}
-
-	.imgProducto {
-		display: flex;
-		justify-content: center;
-		margin-bottom: 5px;
-	}
-
-	.imgProducto img {
-		width: 100%;
-		max-width: 200px;
-		height: auto;
-	}
-
-	.descripcionProducto {
-		display: flex;
-		flex-direction: column;
-		gap: 5px;
-	}
-
-	.descripcion,
-	.detalles {
-		width: 100%;
-	}
-
-	.detalles {
-		margin-top: 5px;
-	}
-
-	#info_container {
-		/*product-info*/
-		width: 90%;
-		display: flex;
-		flex-wrap: wrap;
-	}
-
-	#info_name {
-		font-size: large;
-	}
-
-	.miniatura {
-		display: flex;
-		flex-wrap: nowrap;
-	}
-
-	#image_viewer {
-		width: 75vw;
-		margin: 0;
-	}
-
-	#miniatura img {
-		width: 15vw;
-		height: 15vw;
-	}
+    #miniatura img {
+        width: 15vw;
+        height: 15vw;
+    }
 }
 
 
 /*------------*/
 
 /*-----Responsivilidad tabletas------*/
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c35e92dbc0b259a7c1bda15ff17adc88c2382f6c
+
 @media (min-width: 540px) and (max-width: 1023px) { /*login.html*/
     .container-login{
         width: 70%;
@@ -598,63 +482,57 @@ nav {
         width: 50%;
         font-size: 1rem;
     }
-<<<<<<< HEAD
-=======
-@media (min-width: 540px) and (max-width: 1023px) {
->>>>>>> dd6097c6469a2ebc6517f84b3bab2d547b1f9086
-=======
+}	
 
-    #products-container {
-          grid-template-columns: repeat(2, 1fr); /* 2 productos por fila */
-      }
+@media (min-width: 540px) and (max-width: 1023px) {
 
     .producto {
         flex-direction: column;
         align-items: stretch;
-      }
+    }
 
     .imgProducto {
         display: flex;
         justify-content: center;
         margin-bottom: 5px;
-      }
+    }
 
     .imgProducto img {
         width: 100%;
         max-width: 200px;
         height: auto;
-      }
+    }
 
     .descripcionProducto {
         display: flex;
         flex-direction: column;
         gap: 5px;
-      }
+    }
 
     .descripcion,
-      .detalles {
+    .detalles {
         width: 100%;
-      }
+    }
 
     .detalles {
         margin-top: 5px;
-      }
+    }
 
     .product-card { /* **** */
-          width: 100%;
-          grid-template-columns: 1fr 1fr;
-      }
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    }
     
     #miniatura{
-      display: flex;
+    display: flex;
     }
 
     #miniatura img{
-      max-width: 20%;
-      max-height: 20%;
+    max-width: 20%;
+    max-height: 20%;
     }
+}
 @media (min-width: 540px) and (max-width: 1023px) {
->>>>>>> c35e92dbc0b259a7c1bda15ff17adc88c2382f6c
 
 	/*login.html*/
 	.container-login {
@@ -745,48 +623,27 @@ nav {
 }
 
 @media (min-width: 1025px) {
+	
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 	/* PRODUCTS */
 	#products-container {
 		grid-template-columns: repeat(2, 1fr);
 	}
-}
+}	
 
->>>>>>> c35e92dbc0b259a7c1bda15ff17adc88c2382f6c
-/*FOOTER*/
-footer {
-  background-color: #ffffff;
-  height: 2rem;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  float: inline-end;
-} 
-<<<<<<< HEAD
-=======
-	/* PRODUCTS */
-	#products-container {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-
-=======
->>>>>>> c35e92dbc0b259a7c1bda15ff17adc88c2382f6c
 /*-----------*/
 
 /*FOOTER*/
 footer {
-	background-color: #0b0b0b;
+	background-color: #ecf3f9;
 	height: 4rem;
 	bottom: 0;
 	width: 100%;
 	float: inline-end;
 	margin-top: 1rem;
+}	
+nav.navbar {
+    background-color: #007bff!important; /* tu color personalizado */
+    color: white; /* texto en blanco para que contraste */
 }
-<<<<<<< HEAD
->>>>>>> dd6097c6469a2ebc6517f84b3bab2d547b1f9086
-=======
->>>>>>> c35e92dbc0b259a7c1bda15ff17adc88c2382f6c
+
