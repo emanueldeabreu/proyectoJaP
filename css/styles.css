@@ -325,7 +325,7 @@ main.login {
   color: #555;
 }
 
-/*------------- estrellas de calificacion --------------*/
+/* ------------- estrellas de calificacion --------------*/
 .rating .stars {
   direction: rtl;
   display: inline-flex;
@@ -391,4 +391,5 @@ main.login {
     gap: 8px;
   }
 }
+
 
