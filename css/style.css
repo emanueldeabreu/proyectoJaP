@@ -129,24 +129,15 @@ display: table;
 
 }
 
-#enter-login{
-	display: flex;
-}
 
 #forgot-psw{
-	display: flex;
-	flex-direction: row-reverse;
-	flex-wrap: wrap;
-	width: 100%;
+	position: relative;
+	top: 15vmax;
+	width: 30rem;
 }
 
 #forgot-psw a{
-	position: absolute;
-	align-items: right;
-	top:60%;
-	height: 10%;
-	left: 50%;
-	right: 0%;
+	font-size: 1.5vh;
 }
 
 h4 {
@@ -660,8 +651,4 @@ nav.navbar {
   left: 50px;           /* desde la izquierda */
   bottom: auto;         /* anulamos el bottom */
   right: auto;          /* anulamos el right */
-}
-
-#forgot-psw {
-	overflow:visible;
 }
