@@ -5,7 +5,9 @@ let currentCategoriesArray = [];
 let currentSortCriteria = undefined;
 let minCount = undefined;
 let maxCount = undefined;
-
+// 
+let searchText = ""; // variable para guardar el texto del buscador
+// 
 function sortCategories(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME)
@@ -46,8 +48,16 @@ function showCategoriesList(){
     for(let i = 0; i < currentCategoriesArray.length; i++){
         let category = currentCategoriesArray[i];
 
-        if (((minCount == undefined) || (minCount != undefined && parseInt(category.productCount) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
+        //-
+        let name = category.name.toLowerCase();
+        let description = category.description.toLowerCase();
+
+        let matchesSearch = name.includes(searchText) || description.includes(searchText);
+        let matchesMin = minCount === undefined || parseInt(category.productCount) >= minCount;
+        let matchesMax = maxCount === undefined || parseInt(category.productCount) <= maxCount;
+
+        if (matchesSearch && matchesMin && matchesMax) {
+        //-
 
             htmlContentToAppend += `
             <div onclick="setCatID(${category.id})" class="list-group-item list-group-item-action cursor-active">
@@ -140,4 +150,10 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         showCategoriesList();
     });
+     //-
+    document.getElementById("search-categories").addEventListener("input", function () {
+        searchText = this.value.toLowerCase();
+        showCategoriesList();
+    });
+    //-
 });

@@ -15,34 +15,32 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item">
-          </li>
-        </ul>
-      </div>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav w-100 justify-content-between">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="categories.html">Categorías</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sell.html">Vender</a>
+            </li>
+            <li class="nav-item">
+            </li>
+          </ul>
+        </div>
     </nav>
+
   <main class="pb-5 container">
-
-
     <!-- agregado de filtro -->
-     <div class="container">
+    <div class="container">
       <div class="row">
         <div>
           <div>
@@ -52,12 +50,10 @@
             <label class="btn btn-light" for="descBtn"><i class="fas fa-sort-amount-down mr-1"></i></label>
             <input type="radio" class="btn-check" name="options" id="relevante">
             <label class="btn btn-light" for="relevante"><i class="fas fa-star mr-1"></i></label>
-
           </div>
         </div>
       </div>
       <div class="row">
-        <div>
           <div class="row container p-0 m-0">
             <div class="col">
               <p class="font-weight-normal text-end my-2">Precio</p>
@@ -75,15 +71,19 @@
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
     <!-- agregado de filtro -->
 
-
-  <div class="container" id="products-container">
-    
-  </div>
+    <!-- Buscador de productos -->
+    <!-- desde aqui -->
+    <div class="container my-3">
+      <input type="search" id="buscador" class="form-control" placeholder="Buscar productos por nombre o descripción">
+    </div>
+    <!-- hasta aqui -->
+    <div class="container" id="products-container">
+    <!--Productos-->
+    </div>
   </main>
 
   <footer class="text-muted">
@@ -105,6 +105,8 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
+
+  <script src="js/loader.js"></script>
 </body>
 
 </html>
