@@ -129,11 +129,13 @@ display: table;
 
 }
 
+/* id contraseña | registro*/ 
 
 #forgot-psw{
 	position: relative;
 	top: 15vmax;
 	width: 30rem;
+	left: -5rem; 
 }
 
 #forgot-psw a{
