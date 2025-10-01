@@ -391,5 +391,22 @@ main.login {
     gap: 8px;
   }
 }
-
-
+#btn_register {
+  background-color: #28a745; /* verde */
+  color: white;              /* texto blanco */
+  width: 200px;              /* ancho fijo */
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none; /* para poder moverlo */
+  top: 0px;                 /* desplaza 10px hacia abajo */
+  left: 0;                   /* desplaza horizontal*/
+  top: 70px;   /* desplaza hacia abajo */
+  left: 50px;   /* desplaza horizontal */
+  margin-top: 1rem;
+}
+#enter-login {
+  display: block;       
+  margin: 10px auto 0;  
+  width: 200px;
+}
