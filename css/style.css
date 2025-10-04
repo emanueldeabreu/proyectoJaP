@@ -396,7 +396,7 @@ nav {
     }
 
 	#bodyLogin {
-		background: linear-gradient(to top, oklch(0.96 0.01 239) 70%, oklch(57.182% 0.20352 257.075) 30%);
+		background: linear-gradient(to top, oklch(0.96 0.01 239) 80%, oklch(57.182% 0.20352 257.075) 20%);
 		display: grid;
 	}
 
@@ -428,6 +428,10 @@ nav {
     .detalles {
         width: 100%;
     }
+
+	.separador{
+		visibility: hidden;
+	}
 
     .detalles {
         margin-top: 5px;
@@ -500,7 +504,7 @@ nav {
     }
 
     #btn_login, #btn_register {
-        width: 80%;
+        width: 100%;
     }
 }
 
@@ -528,11 +532,6 @@ nav {
     }
     ::placeholder{
         font-size: 1rem;
-    }
-    #btn_login{
-        color: red; /*manera visual de verlo*/
-        width: 50%;
-        font-size: 1rem;
     } 
 	#child-login {
         display: grid;
@@ -556,6 +555,10 @@ nav {
         margin: 0 auto;
         width: 80%;
     }
+	#bodyLogin {
+		background: linear-gradient(to top, oklch(0.96 0.01 239) 80%, oklch(57.182% 0.20352 257.075) 20%);
+		display: grid;
+	}
 }	
 
 @media (min-width: 540px) and (max-width: 1023px) {
@@ -632,13 +635,6 @@ nav {
 	}
 
 	::placeholder {
-		font-size: 1rem;
-	}
-
-	#btn_login {
-		color: red;
-		/*manera visual de verlo*/
-		width: 50%;
 		font-size: 1rem;
 	}
 
