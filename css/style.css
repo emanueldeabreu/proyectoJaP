@@ -163,6 +163,59 @@ form img {
 	font-size: 1rem;
 }
 
+#related p{
+	font-size: 1.8rem;
+	margin-left: 10%;
+	margin-top: 50px;
+	margin-bottom: 30%;
+}
+
+#rel-title{
+	font-size: 1.8rem;
+	margin-left: 10%;
+	margin-top: 50px;
+}
+
+#related-container {
+	display: flex;
+	flex-wrap: wrap;
+ 	gap: 16px; /* espacio entre columnas */
+  	justify-content: center; /* centra las columnas */
+	margin-bottom: 20%;
+}
+
+.related-item {
+	cursor: pointer;
+	width: 100%;
+ 	max-width: 300px; /* ancho máximo de cada card */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+	border-radius: 8px;
+	overflow: hidden;	
+	background-color: oklch(0.90 0.01 600);
+}
+
+.related-item img {
+	width: 100%;
+	height: 200px; /* altura fija */
+	object-fit: cover; /* recorta si es necesario */
+	padding: 20px;
+}
+
+@media (max-width: 768px) {
+	.related-item {
+    max-width: 45%; /* 2 por fila en tablets/móviles grandes */
+	}
+}
+
+@media (max-width: 480px) {
+	.related-item {
+    max-width: 100%; /* 1 por fila en móviles pequeños */
+	}
+}
+
 .product-card {
 	/* **** */
 	width: 1000px;

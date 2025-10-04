@@ -9,14 +9,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const PRODUCT_INFO_URL = `https://japceibal.github.io/emercado-api/products/${productID}.json`;
 
   fetch(PRODUCT_INFO_URL)
-    .then(response => response.json())
-    .then(product => {
-      renderProductInfo(product);
-    })
-    .catch(error => {
-      console.error("Error al obtener datos del producto:", error);
-      document.querySelector("main").innerHTML = "<p>Error al cargar el producto.</p>";
-    });
+  .then(response => response.json())
+  .then(product => {
+    renderProductInfo(product);          // muestra el detalle del producto
+    renderRelatedProducts(product.id);   // 👈 muestra los productos relacionados
+  })
+  .catch(error => {
+    console.error("Error al obtener datos del producto:", error);
+    document.querySelector("main").innerHTML = "<p>Error al cargar el producto.</p>";
+  });
+
 });
 
 
@@ -71,6 +73,8 @@ function renderProductInfo(product) {
     </div>
   `;
 
+
+
  // --- BLOQUE DE CALIFICACIÓN ---
   const main = document.querySelector("main");
   const ratingHTML = `
@@ -93,6 +97,7 @@ function renderProductInfo(product) {
         <label for="star1" title="1"><i class="bi bi-star-fill"></i></label>
       </div>
     </div>
+
   `;
   main.insertAdjacentHTML('beforeend', ratingHTML);
 
@@ -126,5 +131,51 @@ function renderProductInfo(product) {
       updateImage(index);
     });
   });
+}
+
+function renderRelatedProducts(currentId) {
+  const catID = localStorage.getItem("catID");  // sacamos la categoría actual
+  const RELATED_URL = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
+
+  fetch(RELATED_URL)
+    .then(response => response.json())
+    .then(data => {
+      let related = data.products.filter(p => p.id != currentId).slice(0, 3);
+
+      if (related.length === 0) {
+        // No hay productos relacionados
+        const noRelatedHTML = `
+          <div id="related">
+            <h3 id="rel-title">Productos relacionados</h3>
+            <p>No hay productos relacionados disponibles por el momento.</p>
+          </div>
+        `;
+        document.querySelector("main").insertAdjacentHTML("beforeend", noRelatedHTML);
+        return; // salimos de la función
+      }
+
+      const relatedHTML = `
+        <div id="related">
+          <h3 id="rel-title">Productos relacionados</h3>
+          <div id="related-container">
+            ${related.map(p => `
+              <div class="related-item" data-id="${p.id}">
+                <img src="${p.image}" alt="${p.name}">
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      `;
+
+      document.querySelector("main").insertAdjacentHTML("beforeend", relatedHTML);
+
+      // evento click -> guardar ID y redirigir
+      document.querySelectorAll(".related-item").forEach(item => {
+        item.addEventListener("click", function () {
+          localStorage.setItem("productID", this.getAttribute("data-id"));
+          window.location.href = "product-info.html";
+        });
+      });
+    });
 }
 
