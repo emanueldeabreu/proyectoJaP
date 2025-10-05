@@ -75,7 +75,7 @@ function renderProductInfo(product) {
 
 
 
- // --- BLOQUE DE CALIFICACIÓN ---
+ // --------------- apartado de calificaciones  ------------
   const main = document.querySelector("main");
   const ratingHTML = `
     <div class="rating d-flex align-items-center mt-3">
