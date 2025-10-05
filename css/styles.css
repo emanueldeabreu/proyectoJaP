@@ -391,6 +391,9 @@ main.login {
     gap: 8px;
   }
 }
+
+/*--------------color login-----------*/
+
 #btn_register {
   background-color: #28a745; /* verde */
   color: white;              /* texto blanco */
