@@ -361,8 +361,7 @@ main.login {
   justify-content: flex-start;
   align-items: center;
   margin-top: 20px; /* separación vertical */
-  margin-right: 0; /* separación desde el borde derecho */
-  margin-left: 215px;
+  margin-left: 215px;/* separación desde el borde izquierdo*/
   transform: none;
 }
 
