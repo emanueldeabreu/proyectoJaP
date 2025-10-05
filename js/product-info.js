@@ -110,61 +110,66 @@ function renderProductInfo(product) {
 
 //
  // Sección de comentarios y formulario agregada
-const comentariosSection = `
-  <div id="comentarios-list" class="mt-5">
-    <h4>Comentarios de los usuarios:</h4>
-    <!-- Comentarios se insertan aquí -->
-  </div>
+  const comentariosSection = `
+    <div id="comentarios-list" class="mt-5">
+      <h4>Comentarios de los usuarios:</h4>
+      <!-- Comentarios se insertan aquí -->
+    </div>
 
-  <div id="formulario-calificacion" class="mt-4">
-    <h4>Dejá tu comentario:</h4>
-    <textarea id="comentario" class="form-control mb-2" rows="3" placeholder="Escribe tu comentario aquí..."></textarea>
+    <div id="formulario-calificacion" class="mt-4">
+      <h4>Dejá tu comentario:</h4>
+      <textarea id="comentario" class="form-control mb-2" rows="3" placeholder="Escribe tu comentario aquí..."></textarea>
 
-    <button id="enviarComentario" class="btn btn-primary">Enviar</button>
-  </div>
-`;
-document.querySelector("main").insertAdjacentHTML("beforeend", comentariosSection);
-
-//Funcion de enviar comentario
-document.getElementById("enviarComentario").addEventListener("click", () => {
-  const textoComentario = document.getElementById("comentario").value.trim();
-  const calificacion = parseInt(document.querySelector('input[name="rating"]:checked')?.value);
-  const contenedorComentarios = document.getElementById("comentarios-list");
-
-  if (textoComentario === "") {
-    alert("Por favor, escribe un comentario.");
-    return;
-  }
-// Aqui se valida la calificación, en caso de que no se halla selecionado nada
-
-  if (!calificacion) {
-    alert("Por favor, selecciona una calificación con estrellas.");
-    return;
-  }
-  //
-  const usuario = "Usuario actual";
-  const fecha = new Date().toISOString().split("T")[0];
-
-  const nuevoComentarioHTML = `
-    <div class="comentario mt-3 border-top pt-2">
-      <strong>${usuario}</strong> (${fecha})
-      <p>${textoComentario}</p>
-      <div class="text-warning">
-        ${'★'.repeat(calificacion)}${'☆'.repeat(5 - calificacion)}
-      </div>
+      <button id="enviarComentario" class="btn btn-primary">Enviar</button>
     </div>
   `;
+  document.querySelector("main").insertAdjacentHTML("beforeend", comentariosSection);
 
-  contenedorComentarios.insertAdjacentHTML("beforeend", nuevoComentarioHTML);
+  
+  // Funcion de enviar comentario
+  document.getElementById("enviarComentario").addEventListener("click", () => {
+    const textoComentario = document.getElementById("comentario").value.trim();
+    const calificacion = parseInt(document.querySelector('input[name="rating"]:checked')?.value);
+    const contenedorComentarios = document.getElementById("comments-container");  //
 
-  // Se limpia el contenedor 
- document.getElementById("comentario").value = "";
+    if (textoComentario === "") {
+      alert("Por favor, escribe un comentario.");
+      return;
+    }
 
-  const estrellaSeleccionada = document.querySelector('input[name="rating"]:checked');
-  if (estrellaSeleccionada) {
-    estrellaSeleccionada.checked = false;
-  }
-});
+    if (!calificacion) {
+      alert("Por favor, selecciona una calificación con estrellas.");
+      return;
+    }
+
+    const usuario = "Usuario actual";
+    const fecha = new Date().toISOString().split("T")[0];
+
+    // aqui se crea el HTML del nuevo comentario
+    const nuevoComentarioHTML = `
+      <div class="comment-item border-top pt-2 mt-2">
+        <div class="d-flex justify-content-between align-items-center">
+          <strong>${usuario}</strong>
+          <small class="text-muted">${fecha}</small>
+        </div>
+        <div class="text-warning">
+          ${'★'.repeat(calificacion)}${'☆'.repeat(5 - calificacion)}
+          <strong class="ms-2">(${calificacion})</strong>
+        </div>
+        <p>${textoComentario}</p>
+      </div>
+    `;
+
+    // aca se coloca el comentario dentro de la sección de comentarios de la API
+    contenedorComentarios.insertAdjacentHTML("beforeend", nuevoComentarioHTML);
+
+    // aca de limpia los campos
+    document.getElementById("comentario").value = "";
+    const estrellaSeleccionada = document.querySelector('input[name="rating"]:checked');
+    if (estrellaSeleccionada) {
+      estrellaSeleccionada.checked = false;
+    }
+  });
 //
 
   
