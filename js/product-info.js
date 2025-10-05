@@ -109,7 +109,7 @@ function renderProductInfo(product) {
   main.insertAdjacentHTML('beforeend', ratingHTML);
 
 //
- // Sección de comentarios y formulario agregada
+ // Sección de comentarios y formulario agregada ------------------------
 const comentariosSection = `
   <div id="comentarios-list" class="mt-5">
     <h4>Comentarios de los usuarios:</h4>
@@ -158,7 +158,7 @@ document.getElementById("enviarComentario").addEventListener("click", () => {
   contenedorComentarios.insertAdjacentHTML("beforeend", nuevoComentarioHTML);
 
   // Se limpia el contenedor 
- document.getElementById("comentario").value = "";
+document.getElementById("comentario").value = "";
 
   const estrellaSeleccionada = document.querySelector('input[name="rating"]:checked');
   if (estrellaSeleccionada) {
