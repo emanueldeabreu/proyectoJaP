@@ -90,16 +90,19 @@ function renderProductInfo(product) {
     </div>
   `;
   document.querySelector("main").insertAdjacentHTML('beforeend', ratingHTML);
+// Sección de comentarios y formulario agregada ------------------------
+const comentariosSection = `
+  <div id="comentarios-list" class="mt-5">
+    <!-- Comentarios se insertan aquí -->
+  </div>
 
-  // ----------------- FORMULARIO DEJÁ TU COMENTARIO -----------------
-  const comentariosSection = `
-    <div id="formulario-calificacion" class="mt-4">
-      <h3>Dejá tu comentario:</h3>
-      <textarea id="comentario" class="form-control mb-2" rows="3" placeholder="Escribe tu comentario aquí..."></textarea>
-      <button id="enviarComentario" class="btn btn-primary">Enviar</button>
-    </div>
-  `;
-  document.querySelector("main").insertAdjacentHTML("beforeend", comentariosSection);
+  <div id="formulario-calificacion" class="mt-4">
+    <h3>Dejá tu comentario:</h3>
+    <textarea id="comentario" class="form-control mb-2" rows="3" placeholder="Escribe tu comentario aquí..."></textarea>
+    <button id="enviarComentario" class="btn btn-primary">Enviar</button>
+  </div>
+`;
+document.querySelector("main").insertAdjacentHTML("beforeend", comentariosSection);
 
   // ----------------- FUNCIONALIDAD DE NAVEGACIÓN DE IMÁGENES -----------------
   const mainImage = document.getElementById("main-image");
