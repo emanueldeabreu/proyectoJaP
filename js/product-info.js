@@ -112,12 +112,12 @@ function renderProductInfo(product) {
  // Sección de comentarios y formulario agregada ------------------------
 const comentariosSection = `
   <div id="comentarios-list" class="mt-5">
-    <h4>Comentarios de los usuarios:</h4>
+    
     <!-- Comentarios se insertan aquí -->
   </div>
 
   <div id="formulario-calificacion" class="mt-4">
-    <h4>Dejá tu comentario:</h4>
+    <h3>Dejá tu comentario:</h3>
     <textarea id="comentario" class="form-control mb-2" rows="3" placeholder="Escribe tu comentario aquí..."></textarea>
 
     <button id="enviarComentario" class="btn btn-primary">Enviar</button>
