@@ -197,24 +197,26 @@ function renderCommentsSection(apiComments) {
   `).join("");
 }
 
-function renderRelatedProducts(currentId) {
-  const catID = localStorage.getItem("catID");  
-  const RELATED_URL = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
+
+function renderRelatedProducts(currentId) { //Función que recibe el ID actual para traer los productos relacionados
+  const catID = localStorage.getItem("catID");  // sacamos la categoría actual
+  const RELATED_URL = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`; //URL de la categoría
 
   fetch(RELATED_URL)
     .then(response => response.json())
     .then(data => {
-      let related = data.products.filter(p => p.id != currentId).slice(0, 3);
+      let related = data.products.filter(p => p.id != currentId).slice(0, 3); //Guardamos los primeros tres productos sin ser en el que estamos
 
       if (related.length === 0) {
+        // Si no hay productos relacionados
         const noRelatedHTML = `
           <div id="related">
             <h3 id="rel-title">Productos relacionados</h3>
             <p>No hay productos relacionados disponibles por el momento.</p>
           </div>
         `;
-        document.querySelector("main").insertAdjacentHTML("beforeend", noRelatedHTML);
-        return;
+        document.querySelector("main").insertAdjacentHTML("beforeend", noRelatedHTML); //Insertamos div con texto informativo
+        return; // Y salimos de la función
       }
 
       const relatedHTML = `
@@ -228,10 +230,11 @@ function renderRelatedProducts(currentId) {
             `).join("")}
           </div>
         </div>
-      `;
+      `; // Agregamos las imágenes y juntamos cada div del .map
 
-      document.querySelector("main").insertAdjacentHTML("beforeend", relatedHTML);
+      document.querySelector("main").insertAdjacentHTML("beforeend", relatedHTML); //Insertamos el contenido
 
+      // evento click para guardar ID y redirigir
       document.querySelectorAll(".related-item").forEach(item => {
         item.addEventListener("click", function () {
           localStorage.setItem("productID", this.getAttribute("data-id"));
