@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const COMMENTS_URL = `https://japceibal.github.io/emercado-api/products_comments/${product.id}.json`;
 
-      fetchComments(COMMENTS_URL)  //carga comentarios
+      fetchComments(COMMENTS_URL)  // carga comentarios
         .then(() => {
           renderRelatedProducts(product.id); // productos relacionados luego de comentarios
         });
@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Error al obtener datos del producto:", error);
       document.querySelector("main").innerHTML = "<p>Error al cargar el producto.</p>";
     });
-
 });
 
 function renderProductInfo(product) {
@@ -90,21 +89,18 @@ function renderProductInfo(product) {
     </div>
   `;
   document.querySelector("main").insertAdjacentHTML('beforeend', ratingHTML);
-// Sección de comentarios y formulario agregada ------------------------
-const comentariosSection = `
-  <div id="comentarios-list" class="mt-5">
-    <!-- Comentarios se insertan aquí -->
-  </div>
 
-  <div id="formulario-calificacion" class="mt-4">
-    <h3>Dejá tu comentario:</h3>
-    <textarea id="comentario" class="form-control mb-2" rows="3" placeholder="Escribe tu comentario aquí..."></textarea>
-    <button id="enviarComentario" class="btn btn-primary">Enviar</button>
-  </div>
-`;
-document.querySelector("main").insertAdjacentHTML("beforeend", comentariosSection);
-document.querySelector("main").insertAdjacentHTML('beforeend', '<br class="my-4">');
-document.querySelector("main").insertAdjacentHTML('beforeend', '<hr class="my-4">');
+  // ----------------- FORMULARIO DEJÁ TU COMENTARIO -----------------
+  const comentariosSection = `
+    <div id="comentarios-list" class="mt-5"></div>
+    <div id="formulario-calificacion" class="mt-4">
+      <h3>Dejá tu comentario:</h3>
+      <textarea id="comentario" class="form-control mb-2" rows="3" placeholder="Escribe tu comentario aquí..."></textarea>
+      <button id="enviarComentario" class="btn btn-primary">Enviar</button>
+    </div>
+    <hr class="my-4">
+  `;
+  document.querySelector("main").insertAdjacentHTML("beforeend", comentariosSection);
 
   // ----------------- FUNCIONALIDAD DE NAVEGACIÓN DE IMÁGENES -----------------
   const mainImage = document.getElementById("main-image");
@@ -173,7 +169,7 @@ document.querySelector("main").insertAdjacentHTML('beforeend', '<hr class="my-4"
       estrellaSeleccionada.checked = false;
     }
   });
-} // 
+}
 
 function fetchComments(url) {
   return fetch(url)
@@ -199,26 +195,24 @@ function renderCommentsSection(apiComments) {
   `).join("");
 }
 
-
-function renderRelatedProducts(currentId) { //Función que recibe el ID actual para traer los productos relacionados
-  const catID = localStorage.getItem("catID");  // sacamos la categoría actual
-  const RELATED_URL = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`; //URL de la categoría
+function renderRelatedProducts(currentId) {
+  const catID = localStorage.getItem("catID");
+  const RELATED_URL = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
 
   fetch(RELATED_URL)
     .then(response => response.json())
     .then(data => {
-      let related = data.products.filter(p => p.id != currentId).slice(0, 3); //Guardamos los primeros tres productos sin ser en el que estamos
+      let related = data.products.filter(p => p.id != currentId).slice(0, 3);
 
       if (related.length === 0) {
-        // Si no hay productos relacionados
         const noRelatedHTML = `
           <div id="related">
             <h3 id="rel-title">Productos relacionados</h3>
             <p>No hay productos relacionados disponibles por el momento.</p>
           </div>
         `;
-        document.querySelector("main").insertAdjacentHTML("beforeend", noRelatedHTML); //Insertamos div con texto informativo
-        return; // Y salimos de la función
+        document.querySelector("main").insertAdjacentHTML("beforeend", noRelatedHTML);
+        return;
       }
 
       const relatedHTML = `
@@ -232,11 +226,10 @@ function renderRelatedProducts(currentId) { //Función que recibe el ID actual p
             `).join("")}
           </div>
         </div>
-      `; // Agregamos las imágenes y juntamos cada div del .map
+      `;
 
-      document.querySelector("main").insertAdjacentHTML("beforeend", relatedHTML); //Insertamos el contenido
+      document.querySelector("main").insertAdjacentHTML("beforeend", relatedHTML);
 
-      // evento click para guardar ID y redirigir
       document.querySelectorAll(".related-item").forEach(item => {
         item.addEventListener("click", function () {
           localStorage.setItem("productID", this.getAttribute("data-id"));
@@ -246,8 +239,7 @@ function renderRelatedProducts(currentId) { //Función que recibe el ID actual p
     });
 }
 
-// boton volver arriba y volver abajo //
-
+// ----------------- BOTÓN VOLVER ARRIBA / ABAJO -----------------
 const btn = document.getElementById('btn-flotante');
 
 window.addEventListener('scroll', () => {
@@ -255,18 +247,14 @@ window.addEventListener('scroll', () => {
   const windowHeight = window.innerHeight;
   const pageHeight = document.body.scrollHeight;
 
-  // Mostrar botón solo si la página es más grande que la ventana
   if (pageHeight > windowHeight) {
     btn.style.display = 'block';
 
     if (scrollPos + windowHeight >= pageHeight - 10) {
-      // Estamos casi al final → botón sube
       btn.textContent = 'Volver arriba';
     } else if (scrollPos < 50) {
-      // Estamos arriba → botón baja
       btn.textContent = 'Volver abajo';
     } else {
-      // En el medio → mostrar "Volver arriba"
       btn.textContent = 'Volver arriba';
     }
   } else {
@@ -277,10 +265,8 @@ window.addEventListener('scroll', () => {
 btn.addEventListener('click', (e) => {
   e.preventDefault();
   if (btn.textContent === 'Volver arriba') {
-    // Subir
     window.scrollTo({ top: 0, behavior: 'smooth' });
   } else {
-    // Bajar
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   }
 });
