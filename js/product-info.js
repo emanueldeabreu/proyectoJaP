@@ -11,9 +11,16 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch(PRODUCT_INFO_URL)
   .then(response => response.json())
   .then(product => {
-    renderProductInfo(product);          // muestra el detalle del producto
-    renderRelatedProducts(product.id);   // 👈 muestra los productos relacionados
-  })
+  renderProductInfo(product); // muestra el detalle del producto
+
+  const COMMENTS_URL = `https://japceibal.github.io/emercado-api/products_comments/${product.id}.json`;
+
+  fetchComments(COMMENTS_URL)  //carga comentarios
+    .then(() => {
+      renderRelatedProducts(product.id); // productos relacionados luego de comentarios
+    });
+})
+
   .catch(error => {
     console.error("Error al obtener datos del producto:", error);
     document.querySelector("main").innerHTML = "<p>Error al cargar el producto.</p>";
@@ -75,7 +82,7 @@ function renderProductInfo(product) {
 
 
 
- // --- BLOQUE DE CALIFICACIÓN ---
+ // --------------- apartado de calificaciones  ------------
   const main = document.querySelector("main");
   const ratingHTML = `
     <div class="rating d-flex align-items-center mt-3">
@@ -100,6 +107,70 @@ function renderProductInfo(product) {
 
   `;
   main.insertAdjacentHTML('beforeend', ratingHTML);
+
+//
+ // Sección de comentarios y formulario agregada
+  const comentariosSection = `
+    <div id="comentarios-list" class="mt-5">
+      <h4>Comentarios de los usuarios:</h4>
+      <!-- Comentarios se insertan aquí -->
+    </div>
+
+    <div id="formulario-calificacion" class="mt-4">
+      <h4>Dejá tu comentario:</h4>
+      <textarea id="comentario" class="form-control mb-2" rows="3" placeholder="Escribe tu comentario aquí..."></textarea>
+
+      <button id="enviarComentario" class="btn btn-primary">Enviar</button>
+    </div>
+  `;
+  document.querySelector("main").insertAdjacentHTML("beforeend", comentariosSection);
+
+  
+  // Funcion de enviar comentario
+  document.getElementById("enviarComentario").addEventListener("click", () => {
+    const textoComentario = document.getElementById("comentario").value.trim();
+    const calificacion = parseInt(document.querySelector('input[name="rating"]:checked')?.value);
+    const contenedorComentarios = document.getElementById("comments-container");  //
+
+    if (textoComentario === "") {
+      alert("Por favor, escribe un comentario.");
+      return;
+    }
+
+    if (!calificacion) {
+      alert("Por favor, selecciona una calificación con estrellas.");
+      return;
+    }
+
+    const usuario = "Usuario actual";
+    const fecha = new Date().toISOString().split("T")[0];
+
+    // aqui se crea el HTML del nuevo comentario
+    const nuevoComentarioHTML = `
+      <div class="comment-item border-top pt-2 mt-2">
+        <div class="d-flex justify-content-between align-items-center">
+          <strong>${usuario}</strong>
+          <small class="text-muted">${fecha}</small>
+        </div>
+        <div class="text-warning">
+          ${'★'.repeat(calificacion)}${'☆'.repeat(5 - calificacion)}
+          <strong class="ms-2">(${calificacion})</strong>
+        </div>
+        <p>${textoComentario}</p>
+      </div>
+    `;
+
+    // aca se coloca el comentario dentro de la sección de comentarios de la API
+    contenedorComentarios.insertAdjacentHTML("beforeend", nuevoComentarioHTML);
+
+    // aca de limpia los campos
+    document.getElementById("comentario").value = "";
+    const estrellaSeleccionada = document.querySelector('input[name="rating"]:checked');
+    if (estrellaSeleccionada) {
+      estrellaSeleccionada.checked = false;
+    }
+  });
+//
 
   
   // Funcionalidad de navegación
@@ -133,7 +204,41 @@ function renderProductInfo(product) {
   });
 }
 
+function fetchComments(url) {
+  return fetch(url)
+    .then(response => response.json())
+    .then(data => renderCommentsSection(data))
+    .catch(error => console.error("Error al obtener comentarios:", error));
+}
 
+function renderCommentsSection(apiComments) {
+  const main = document.querySelector("main");
+
+  const commentsBox = document.createElement("div");
+  commentsBox.classList.add("product-card", "comments-box", "mt-4");
+  commentsBox.innerHTML = `
+    <h3>Comentarios</h3>
+    <div id="comments-container" class="mt-4"></div>
+  `;
+
+  main.insertAdjacentElement("beforeend", commentsBox);
+
+  const commentsContainer = commentsBox.querySelector("#comments-container");
+
+  commentsContainer.innerHTML = apiComments.map(c => `
+    <div class="comment-item border-top pt-2 mt-2">
+      <div class="d-flex justify-content-between align-items-center">
+        <strong>${c.user}</strong>
+        <small class="text-muted">${c.dateTime}</small>
+      </div>
+      <div class="text-warning">
+        ${"★".repeat(c.score)}${"☆".repeat(5 - c.score)}
+        <strong class="ms-2">(${c.score})</strong>
+      </div>
+      <p>${c.description}</p>
+    </div>
+  `).join("");
+}
 
 
 function renderRelatedProducts(currentId) { //Función que recibe el ID actual para traer los productos relacionados
@@ -181,4 +286,3 @@ function renderRelatedProducts(currentId) { //Función que recibe el ID actual p
       });
     });
 }
-
