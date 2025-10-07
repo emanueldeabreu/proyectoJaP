@@ -103,6 +103,8 @@ const comentariosSection = `
   </div>
 `;
 document.querySelector("main").insertAdjacentHTML("beforeend", comentariosSection);
+document.querySelector("main").insertAdjacentHTML('beforeend', '<br class="my-4">');
+document.querySelector("main").insertAdjacentHTML('beforeend', '<hr class="my-4">');
 
   // ----------------- FUNCIONALIDAD DE NAVEGACIÓN DE IMÁGENES -----------------
   const mainImage = document.getElementById("main-image");

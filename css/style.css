@@ -701,17 +701,29 @@ nav {
 	}
 }	
 
-/*-----------*/
+/* ---------- Footer -----------*/
 
-/*FOOTER*/
-footer {
-	background-color: #ecf3f9;
-	height: 4rem;
-	bottom: 0;
+#footer-login {
+	background-color: transparent !important;
+	color: black !important; /* texto normal en negro */
+	text-align: left;              
+	padding: 1rem 0 1rem 0px;    
 	width: 100%;
-	float: inline-end;
-	margin-top: 1rem;
-}	
+	font-size: 1rem;
+}
+
+/* Enlaces en negro y subrayados */
+#footer-login a {
+  color: black !important;  /* fuerza negro al enlace */
+  text-decoration: underline;    /* subrayado */
+}
+
+/* Opcional: si querés que no cambie el color al pasar el mouse */
+#footer-login a:hover {
+	color: black !important;
+	text-decoration: underline;
+}
+
 nav.navbar {
     background-color: #007bff!important; /* tu color personalizado */
     color: white; /* texto en blanco para que contraste */
@@ -730,4 +742,72 @@ nav.navbar {
   left: 50px;           /* desde la izquierda */
   bottom: auto;         /* anulamos el bottom */
   right: auto;          /* anulamos el right */
+}
+/*-------------- cajas de texto usuario y contraseña ------------------*/
+.input-login {
+	display: flex;
+	align-items: center;
+	background-color: #fff;
+    border-radius: 30px;  /* bordes más redondos */
+	padding: 5px 15px;
+	border: 1px solid #ccc;
+	margin-bottom: 15px;
+}
+
+.input-login img {
+	width: 25px;
+	height: 25px;
+	margin-right: 10px;
+	border: none; /* quita borde del thumbnail */
+}
+
+.input-login input.form-control {
+	border: none;
+	outline: none;
+	flex: 1;
+	border-radius: 30px;
+	padding: 10px 15px;
+	background-color: transparent;
+}
+
+.input-login input.form-control:focus {
+	box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+}
+
+/*------------- BOTONES ingresar y crear cuenta -----------------*/
+#enter-login {
+display: flex;
+  justify-content: center; /* centra horizontalmente */
+  gap: 0px;   /* espacio entre botones */
+margin-top: 30px;
+margin-left: 160px;
+}
+
+#btn_login,
+#btn_register {
+	border-radius: 25px; /* bordes redondeados */
+	padding: 10px 25px;
+	font-weight: 600;
+	border: none;
+	transition: all 0.3s ease;
+}
+
+/* Ingresar (principal) */
+#btn_login {
+background-color: #007bff;
+color: white;
+}
+
+#btn_login:hover {
+	background-color: #0056b3;
+}
+
+/* Registrar (secundario) */
+#btn_register {
+	background-color: #28a745;
+	color: white;
+}
+
+#btn_register:hover {
+	background-color: #28a745;
 }
