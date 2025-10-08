@@ -167,11 +167,6 @@ nav a {
   display: none;
 }
 
-main {
-  min-height: 100vh;
-  position: relative;
-}
-
 a.custom-card,
 a.custom-card:hover {
   color: inherit;
@@ -197,12 +192,8 @@ header{
   padding: 1rem;
 }
 
-main.login {
-  flex: 1;
-  display: flex;
-  justify-content: center; 
-  align-items: center;    
-  margin-top: 40px; 
+main#login {
+  width: auto;
 }
 
 .container-logo {
