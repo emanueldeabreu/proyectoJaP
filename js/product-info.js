@@ -173,7 +173,7 @@ document.querySelector("main").insertAdjacentHTML('beforeend', '<hr class="my-4"
       estrellaSeleccionada.checked = false;
     }
   });
-}
+} // 
 
 function fetchComments(url) {
   return fetch(url)
