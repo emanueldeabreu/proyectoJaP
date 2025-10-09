@@ -245,3 +245,42 @@ function renderRelatedProducts(currentId) { //Función que recibe el ID actual p
       });
     });
 }
+
+// boton volver arriba y volver abajo //
+
+const btn = document.getElementById('btn-flotante');
+
+window.addEventListener('scroll', () => {
+  const scrollPos = window.scrollY;
+  const windowHeight = window.innerHeight;
+  const pageHeight = document.body.scrollHeight;
+
+  // Mostrar botón solo si la página es más grande que la ventana
+  if (pageHeight > windowHeight) {
+    btn.style.display = 'block';
+
+    if (scrollPos + windowHeight >= pageHeight - 10) {
+      // Estamos casi al final → botón sube
+      btn.textContent = 'Volver arriba';
+    } else if (scrollPos < 50) {
+      // Estamos arriba → botón baja
+      btn.textContent = 'Volver abajo';
+    } else {
+      // En el medio → mostrar "Volver arriba"
+      btn.textContent = 'Volver arriba';
+    }
+  } else {
+    btn.style.display = 'none';
+  }
+});
+
+btn.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (btn.textContent === 'Volver arriba') {
+    // Subir
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    // Bajar
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }
+});

@@ -765,7 +765,7 @@ display: flex;
   justify-content: center; /* centra horizontalmente */
   gap: 0px;   /* espacio entre botones */
 margin-top: 30px;
-margin-left: 160px;
+margin-left: 95px;
 }
 
 #btn_login,
@@ -796,3 +796,25 @@ color: white;
 #btn_register:hover {
 	background-color: #28a745;
 }
+
+/*------------ boton volver arriba ----------------*/
+#btn-flotante {
+position: fixed;
+bottom: 20px;
+right: 20px;
+background-color: #0d6efd;
+color: white;
+padding: 10px 15px;
+border-radius: 8px;
+text-decoration: none;
+box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+z-index: 1000;
+display: none; /* se oculta por defecto */
+transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#btn-flotante:hover {
+background-color: #28a745;
+transform: translateY(-3px);
+}
+
