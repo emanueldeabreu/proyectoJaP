@@ -1,0 +1,123 @@
+/* ---------- transiciones suaves del btn -------- */
+body {
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+nav, footer {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/*---------- color del modo oscuro----------*/
+body.dark-mode {
+  background-color: #212121;
+  color: #f0f0f0;
+}
+
+body.dark-mode nav.navbar {
+  background-color: #303030 !important;
+}
+
+body.dark-mode footer {
+  background-color: #303030!important;
+  color: #ccc;
+}
+
+body.dark-mode a {
+  color: #b3d9ff;
+}
+
+/*------------ Switch  ---------*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 32px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* -------------- fondo del switch---------- */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  box-sizing: border-box;
+}
+
+/* ------------ Círculo deslizante -----------*/
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.4s ease;
+}
+
+/* -------- íconos ------------ */
+.icono-sol,
+.icono-luna {
+  font-size: 1.1rem;
+  color: #fff;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/*----------al activar (modo oscuro)-------- */
+input:checked + .slider {
+  background-color: #007bff;
+}
+
+input:checked + .slider::before {
+  transform: translateX(28px);
+}
+
+/* -------- cambiar colores -------- */
+body.dark-mode .icono-sol {
+  color: #f1c40f;
+}
+
+body.dark-mode .icono-luna {
+  color: #b3d9ff;
+}
+/* --------- modo oscuro para tarjetas y secciones específicas------ */
+body.dark-mode .product-card,
+body.dark-mode .product-right,
+body.dark-mode .product-desc,
+body.dark-mode .descripcion,
+body.dark-mode .detalles,
+body.dark-mode #formulario-calificacion,
+body.dark-mode #comentario {
+    background-color: #303030;  /* fondo oscuro */
+    color: #f0f0f0;             /* texto claro */
+    border-color: #333;          /* borde más oscuro */
+}
+
+/* ---------si hay miniaturas dentro de las tarjetas--------------- */
+body.dark-mode .miniatura img,
+body.dark-mode .miniatura .add-btn {
+    border-color: #555;  /* bordes de miniaturas más visibles */
+}
+
+/*------- links dentro de tarjetas y comentarios */
+body.dark-mode .product-card a,
+body.dark-mode .product-desc a,
+body.dark-mode #formulario-calificacion a {
+    color: #9ecfff;  /* azul clarito */
+}

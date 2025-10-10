@@ -212,6 +212,7 @@ main#login {
 .title-login {
   text-align: center;
   margin-bottom: 2rem;
+  background-color: #ebf2f8;
 }
 
 .input-login {
@@ -415,4 +416,20 @@ main#login {
   max-width: 100%;   /* para que no se pase del contenedor en pantallas pequeñas */
   display: block;    
   margin: 0 auto;    /* centra horizontalmente */
+}
+
+/*--------- botono modo claro y oscuro ----------*/
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode input,
+body.dark-mode button {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark-mode #container-login {
+  background-color: rgba(50, 50, 50, 0.8);
 }
