@@ -818,3 +818,114 @@ transition: background-color 0.3s ease, transform 0.2s ease;
 background-color: #28a745;
 transform: translateY(-3px);
 }
+
+/*---------- modo oscuro/claro -----------*/
+
+/* boton swith */
+.theme-switch {
+	position: fixed;
+	top: 0.5rem; /* distancia del boton desde arriba */
+	right: 1rem; /* distancias del boton desde la derecha */
+	z-index: 1000;
+}
+
+/* ocultamos el checkbox del boton */
+.theme-switch input {
+	display: none;
+}
+
+/* estilo del label (boton switch) */
+.theme-switch label {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 60px;
+	height: 30px;
+  	background-color: #c2c0c0; /* color de fondo del boton */
+	border-radius: 30px;
+	position: relative;
+	cursor: pointer;
+	padding: 0 5px;
+	transition: background-color 0.3s;
+}
+
+/* iconos */
+.theme-switch label i {
+  font-size: 1.4rem; /* tamaños  del los iconos */
+	z-index: 2;
+}
+
+/* animación de desliz del boton */
+.theme-switch .slider {
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 24px;
+	height: 24px;
+	background-color: white;
+	border-radius: 50%;
+	transition: transform 0.3s;
+}
+
+/* movimiento al activar */
+.theme-switch input:checked + label .slider {
+	transform: translateX(30px);
+}
+
+/* colores del body con modo oscuro */
+body {
+	background-color: white;
+	color: black;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+	background-color: #1f1f1f; /* color del fondo */
+	color: #f5f5f5;
+}
+
+/* tarjetas de productos */
+body.dark .producto,
+body.dark .descripcion,
+body.dark .detalles,
+body.dark .product-card,
+body.dark .related-item {
+	background-color: #303030; /* color de la tarjeta de productos */
+	color: #ffffff; /* color dle texto dentro de la tarjeta de productos */
+	border-color: #444; /* bordes de la tarjeta de productos más oscuros */
+}
+
+/* modo oscuro descripción del producto */
+body.dark .product-desc {
+	background-color: #666; /* gris oscuro */
+	color: #f5f5f5;    /*  color texto */
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* miniaturas dentro de product-info */
+body.dark .miniatura img,
+body.dark .miniatura .add-btn {
+	border-color: #666; /* bordes miniaturas */
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* seccion comentarios */
+body.dark #comentario,
+body.dark #formulario-calificacion {
+	background-color: #2c2c2c;
+	color: #f5f5f5;
+	border-color: #444;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+	
+}
+
+/* otros elementos como nav si quieres que cambie */
+body.dark nav.navbar {
+	background-color: #111 !important;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* bordes miniaturuas */
+body.dark img {
+	border-color: #666;
+}
