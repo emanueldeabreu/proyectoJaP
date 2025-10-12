@@ -275,6 +275,19 @@ btn.addEventListener('click', (e) => {
 
 const toggle = document.getElementById('theme-toggle');
 
+// al cargar la página, se verifica si hay un modo guardado
+if (localStorage.getItem('darkMode') === 'true') {
+  document.body.classList.add('dark');
+  toggle.checked = true; // sincroniza el switch/boton
+}
+
+// escuchamos cambios en el toggle
 toggle.addEventListener('change', () => {
-  document.body.classList.toggle('dark', toggle.checked);
+  if (toggle.checked) {
+    document.body.classList.add('dark');
+    localStorage.setItem('darkMode', 'true'); // guardamos en localStorage
+  } else {
+    document.body.classList.remove('dark');
+    localStorage.setItem('darkMode', 'false'); // guardamos en localStorage
+  }
 });
