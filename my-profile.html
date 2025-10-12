@@ -8,6 +8,8 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -26,37 +28,72 @@
   </style>
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item">
-          </li>
-        </ul>
+<body id="my-profile-page">
+  <header class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav w-100 justify-content-between">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="categories.html">Categorías</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sell.html">Vender</a>
+            </li>
+            <li class="nav-item">
+            </li>
+          </ul>
+        </div>
+      </div>
+  </header>
+
+  <main id="my-profile">
+    <div id="pfp">
+      <img id="profile-img" src="img/pfp.jpeg" alt="Foto de perfil" />
+      <p id="profile-name">Usuario</p>
+      <button id="change-photo" class="btn btn-secondary btn-sm mt-2">Cambiar foto</button>
+
+      <div id="photo-options" class="hidden mt-2">
+        <img src="img/pfp1.jpeg" class="pfp-option" data-pfp="img/pfp1.jpeg" alt="pfp1">
+        <img src="img/pfp2.jpeg" class="pfp-option" data-pfp="img/pfp2.jpeg" alt="pfp2">
+        <img src="img/pfp3.jpeg" class="pfp-option" data-pfp="img/pfp3.jpeg" alt="pfp3">
+        <img src="img/pfp4.jpeg" class="pfp-option" data-pfp="img/pfp4.jpeg" alt="pfp4">
+        
+        <!-- Botón para volver a la foto predeterminada -->
+        <button id="reset-photo" class="btn btn-sm btn-warning mt-1">Borrar foto</button>
+    </div>
+
       </div>
     </div>
-  </nav>
-  <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+
+    <div class="profile">
+      <input type="text" id="usuario" class="form-control" placeholder="Usuario visible">
+      <input type="text" id="nombre" class="form-control" placeholder="Nombre completo">
+      <input type="email" id="email" class="form-control" placeholder="Correo electrónico" disabled>
+      <input type="tel" id="telefono" class="form-control" placeholder="Teléfono">
+
+      <div class="form-check mt-2">
+        <input type="checkbox" id="vendedor" class="form-check-input">
+        <label for="vendedor" class="form-check-label">Soy vendedor</label>
       </div>
+
+      <div id="descripcion-container" class="hidden mt-2">
+        <textarea id="descripcion" class="form-control" placeholder="Escribe una breve descripción..."></textarea>
+      </div>
+
+      <button id="save-profile" class="btn btn-success mt-3">Guardar cambios</button>
     </div>
   </main>
+
+
+
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
@@ -65,10 +102,12 @@
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
   <script src="js/modo.js"></script>
+  <script src="js/header.js"></script>
 </body>
 
 </html>

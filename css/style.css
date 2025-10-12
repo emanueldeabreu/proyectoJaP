@@ -13,6 +13,222 @@ Revisar medidas desde open with liveserver
 
 /*style.css agregado para los cambios de las entregas*/
 
+/*NOMBRE DE USUARIO Y FOTO EN EL HEADER*/
+.usr-profile-img {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border: 2px solid #fff;
+}
+
+.usr-name {
+    font-weight: 500;
+    color: #fff;
+}
+
+.usr-vendedor {
+    background-color: #2ecc71;
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/*end nombre y foto*/
+
+
+/*my-profile*/
+
+#my-profile-page {
+	display: grid;
+	grid-template-rows: 100px 1fr 100px;
+	min-height: 100vh;
+	gap: 10px;
+}
+
+/* Header y footer ocupan todo el ancho */
+#my-profile-page > header,
+#my-profile-page > footer {
+	grid-column: 1 / -1;
+}
+
+/* === Grid interno para el contenido principal === */
+#my-profile-page main {
+	display: grid;
+	grid-template-columns: 30% 1fr; /* pfp izquierda, profile derecha */
+	gap: 20px;
+	padding: 20px;
+	align-items: start;
+}
+
+/* Estilos opcionales para estética */
+#pfp {
+	background-color: #f5f5f5;
+	border-radius: 10px;
+	text-align: center;
+	padding: 20px;
+}
+
+.profile {
+	background-color: #ffffff;
+	border-radius: 10px;
+	padding: 20px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+/* Ya tenés todo el estilo base del main; solo agregamos lo siguiente: */
+
+.vendedor-check {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-top: 10px;
+	color: #ccc;
+}
+
+.vendedor-check input[type="checkbox"] {
+	width: 18px;
+	height: 18px;
+  accent-color: #2ecc71; /* color verde moderno */
+}
+
+#descripcion-container {
+	margin-top: 15px;
+}
+
+#descripcion-container.hidden {
+	display: none;
+}
+
+#descripcion {
+	background-color: #2b2b2b;
+	border: 1px solid #333;
+	color: #e0e0e0;
+	border-radius: 8px;
+	padding: 10px;
+	resize: none;
+}
+
+#descripcion:focus {
+	border-color: #2ecc71;
+	box-shadow: 0 0 6px #2ecc71;
+}
+
+/* === Espaciado y estructura dentro del perfil === */
+.profile {
+	display: flex;
+	flex-direction: column;
+  gap: 15px; /* separa los inputs */
+}
+
+/* Inputs */
+.profile .form-control {
+	background-color: #f9f9f9;
+	border: 1px solid #ccc;
+	color: #333;
+	border-radius: 6px;
+	padding: 10px;
+}
+
+.profile .form-control:focus {
+	border-color: #2ecc71;
+	box-shadow: 0 0 6px rgba(46, 204, 113, 0.6);
+}
+
+/* Botón de guardar */
+#save-profile {
+	align-self: flex-start;
+	background-color: #2ecc71;
+	border: none;
+	color: white;
+	padding: 8px 16px;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+#save-profile:hover {
+	background-color: #27ae60;
+}
+
+/* === Bloque de foto de perfil === */
+#pfp img {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 3px solid #2ecc71;
+}
+
+#pfp p {
+	margin-top: 10px;
+	font-weight: 500;
+	color: #333;
+}
+
+/* Botón cambiar foto */
+#change-photo {
+	margin-top: 10px;
+	padding: 6px 12px;
+	border-radius: 6px;
+	border: none;
+	background-color: #2ecc71;
+	color: white;
+	cursor: pointer;
+}
+
+#change-photo:hover {
+	background-color: #27ae60;
+}
+
+/* === Fotos predeterminadas === */
+#photo-options {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-top: 10px;
+}
+
+#photo-options img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	cursor: pointer;
+	border: 2px solid transparent;
+	transition: transform 0.2s, border-color 0.2s;
+}
+
+#photo-options img:hover {
+	transform: scale(1.1);
+	border-color: #2ecc71;
+}
+
+.hidden {
+	display: none !important;
+}
+
+#preview-vendedor {
+    background-color: #2ecc71;
+    color: white;
+    font-size: 0.8rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 8px;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+	#my-profile-page main {
+		grid-template-columns: 1fr;
+	}
+
+	#pfp, .profile {
+		width: 100%;
+	}
+}
+
+
+/*end my-profile*/
+
 body {
 	min-height: 90vh;
 	position: relative;
@@ -113,10 +329,7 @@ body {
 /* id contraseña | registro*/ 
 
 #forgot-psw{
-	position: relative;
-	top: 15vmax;
-	width: 30rem;
-	left: -5rem; 
+	width: 30vw;
 }
 
 #forgot-psw a{
@@ -473,21 +686,6 @@ nav {
         margin-bottom: 0.5rem;
     }
 
-    #forgot-psw {
-        top: 0;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        margin-top: 1rem;
-    }
-
-    #enter-login {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-    }
-
     #btn_login, #btn_register {
         width: 100%;
     }
@@ -760,14 +958,6 @@ nav.navbar {
 }
 
 /*------------- BOTONES ingresar y crear cuenta -----------------*/
-#enter-login {
-display: flex;
-  justify-content: center; /* centra horizontalmente */
-  gap: 0px;   /* espacio entre botones */
-margin-top: 30px;
-margin-left: 95px;
-}
-
 #btn_login,
 #btn_register {
 	border-radius: 25px; /* bordes redondeados */
