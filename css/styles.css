@@ -179,13 +179,6 @@ a.custom-card:hover {
 
 
 
-body{
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  position: relative;
-}
-
 header{
   min-height: 60px;
   background-color: rgba(200, 200, 200, 0.300);
@@ -397,11 +390,6 @@ main#login {
   top: 70px;   /* desplaza hacia abajo */
   left: 50px;   /* desplaza horizontal */
   margin-top: 1rem;
-}
-#enter-login {
-  display: block;       
-  margin: 10px auto 0;  
-  width: 200px;
 }
 
 /*------Deja tu comentario ---------*/
