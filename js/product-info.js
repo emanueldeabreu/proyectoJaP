@@ -270,3 +270,11 @@ btn.addEventListener('click', (e) => {
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   }
 });
+
+// ------------- modo oscuro ----------------- //
+
+const toggle = document.getElementById('theme-toggle');
+
+toggle.addEventListener('change', () => {
+  document.body.classList.toggle('dark', toggle.checked);
+});
