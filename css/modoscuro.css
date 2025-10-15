@@ -1,0 +1,375 @@
+/*---------- modo oscuro general -----------*/
+
+/* boton swith */
+.theme-switch {
+  /* position: fixed; eliminar */
+	top: auto;
+	right: auto;
+	z-index: auto;
+}	
+
+/* ocultamos el checkbox del boton */
+.theme-switch input {
+	display: none;
+}
+
+/* estilo del label (boton switch) */
+.theme-switch label {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 60px;
+	height: 30px;
+  	background-color: #c2c0c0; /* color de fondo del boton */
+	border-radius: 30px;
+	position: relative;
+	cursor: pointer;
+	padding: 0 5px;
+	transition: background-color 0.3s;
+}
+
+/* iconos */
+.theme-switch label i {
+  font-size: 1.2rem; /* tamaños  del los iconos */
+	z-index: 2;
+}
+
+/* animación de desliz del boton */
+.theme-switch .slider {
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 24px;
+	height: 24px;
+	background-color: white;
+	border-radius: 50%;
+	transition: transform 0.3s;
+}
+
+/* movimiento al activar */
+.theme-switch input:checked + label .slider {
+	transform: translateX(30px);
+}
+
+/* colores del body con modo oscuro */
+body {
+	background-color: white;
+	color: black;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+	background-color: #1f1f1f; /* color del fondo */
+	color: #f5f5f5;
+}
+
+/* tarjetas de productos */
+body.dark .producto,
+body.dark .descripcion,
+body.dark .detalles,
+body.dark .product-card,
+body.dark .related-item {
+	background-color: #303030; /* color de la tarjeta de productos */
+	color: #ababab; /* color dle texto dentro de la tarjeta de productos */
+	border-color: #444; /* bordes de la tarjeta de productos más oscuros */
+}
+
+/* modo oscuro descripción del producto */
+body.dark .product-desc {
+	background-color: #666; /* gris oscuro */
+	color: #ababab;    /*  color texto */
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* miniaturas dentro de product-info */
+body.dark .miniatura img,
+body.dark .miniatura .add-btn {
+	border-color: #666; /* bordes miniaturas */
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* seccion comentarios */
+body.dark #comentario,
+body.dark #formulario-calificacion {
+	background-color: #2c2c2c;
+	color: #ffffff; /*color texto deja tu comentario*/
+	border-color: #444;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+	
+}
+
+/* otros elementos como nav si quieres que cambie */
+body.dark nav.navbar {
+	background-color: #111 !important;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* bordes miniaturuas */
+body.dark img {
+	border-color: #666;
+}
+
+/* ===================== SEL.HTML ===========================*/
+
+/*----inputs, textareas y selects en modo oscuro -----*/
+body.dark input,
+body.dark select,
+body.dark textarea,
+body.dark .form-control {
+  	background-color: #2a2a2a !important; /* fondo gris oscuro */
+  	color: #ababab !important; /* texto claro */
+  	border: 1px solid #555 !important; /* borde más oscuro */
+}
+
+/* Placeholder también en modo oscuro */
+body.dark input::placeholder,
+body.dark textarea::placeholder {
+	color: #aaa !important;
+}
+
+/* --------------------- area de carga de imágenes ------------------*/
+body.dark #file-upload {
+  	background-color: #2c2c2c !important; /* fondo oscuro */
+  	color: #ababab !important; /* texto claro */
+ 	 border: 2px dashed #666 !important; /* borde gris oscuro */
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+	transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body.dark #file-upload .dz-message {
+	color: #ababab !important;
+}
+
+/* efecto hover (cuando el usuario pasa el mouse) */
+body.dark #file-upload:hover {
+	background-color: #3a3a3a !important;
+	border-color: #888 !important;
+}
+
+/* textarea del producto */
+body.dark textarea.form-control,
+body.dark textarea {
+	background-color: #2c2c2c !important;
+	color: #f5f5f5 !important;
+	border: 1px solid #555 !important;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+	transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* cambios al enfocar */
+body.dark textarea:focus {
+	background-color: #333 !important;
+	border-color: #888 !important;
+	color: #fff !important;
+}
+
+/* ------------------------ area Costos --------------------- */
+body.dark .list-group-item {
+ 	 background-color: #2c2c2c !important;  /* fondo oscuro */
+ 	 color: #ababab !important;             /* texto claro */
+  	border-color: #444 !important;         /* bordes más oscuros */	
+	transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* Títulos dentro de la lista */
+body.dark .list-group-item h6 {
+	color: #ababab !important;
+}
+
+/* Textos secundarios (los <small> o .text-muted) */
+body.dark .list-group-item small,
+body.dark .list-group-item .text-muted {
+	color: #ccc !important;
+}
+
+/* El texto del total en negrita */
+body.dark #totalCostText {
+	color: #fff !important;
+}
+
+/* Botón principal “Vender” */
+body.dark .btn-primary {
+	background-color: #0d6efd !important;
+	color: #fff !important;
+	transition: background-color 0.3s, border-color 0.3s;
+}
+
+body.dark .btn-primary:hover {
+	background-color: #666 !important;
+	border-color: #888 !important;
+}
+
+/* ------------- area Ver condiciones de publicación --------------- */
+body.dark .modal-content {
+	background-color: #2c2c2c !important;
+	color: #f5f5f5 !important;
+	border-color: #444 !important;
+	box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+	transition: background-color 0.3s, color 0.3s;
+}
+
+/* titulo */
+body.dark .modal-title {
+	color: #eaeaea !important;
+}
+
+/* body */
+body.dark .modal-body {
+	background-color: #2c2c2c !important;
+color: #ababab!important;
+}
+
+/* textos */
+body.dark .modal-body .muted,
+body.dark .modal-body .text-muted {
+	color: #eaeaea !important; /*color del texto*/
+}
+
+/* footer */
+body.dark .modal-footer {
+	border-top-color: #444 !important;
+	background-color: #252525 !important;
+}
+
+/* botón Cerrar */
+body.dark .modal-footer .btn-primary {
+	background-color: #0d6efd !important;
+	color: #fff !important;
+}
+
+/*======================= PRODUCTS.HTML =================*/
+
+/* boton de filtro y limpiar */
+body.dark #filtrar {
+	background-color: #3a3a3a !important; /* fondo oscuro */
+	color: #ababab !important;            /* texto claro */
+	border-color: #555 !important;        /* borde oscuro */
+}
+
+body.dark #filtrar:hover {
+	background-color: #555 !important;
+	border-color: #666 !important;
+}
+
+body.dark #limpiar:hover {
+	color: #fff !important;
+	text-decoration: underline !important;
+}
+
+/* ---------- botones de orden (asc, desc, + relevante) --------- */
+body.dark label.btn-light {
+	background-color: #3a3a3a !important;
+  	color: #f1f1f1 !important;            /* texto e iconos */
+  	border-color: #555 !important;        /* borde oscuro */
+}
+
+body.dark label.btn-light:hover,
+body.dark label.btn-light.active {
+	background-color: #555 !important;
+	color: #fff !important;
+	border-color: #666 !important;
+}
+
+/* iconos */
+body.dark label.btn-light i {
+	color: #ababab !important;
+}
+/* precip en los filtros */
+body.dark p.font-weight-normal{
+	color: #ababab!important;
+}
+
+/*====================== MY-PROFILE.HTML==============*/
+
+body.dark .profile {
+    background-color: #222; /* body del area formulario */
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+body.dark .profile input.form-control:disabled {
+    background-color: #3a3a3a;
+    color: #888;
+    border-color: #444;
+}
+
+body.dark .profile input.form-control::placeholder,
+body.dark .profile textarea.form-control::placeholder {
+    color: #aaa;
+}
+
+/* checkbox */
+body.dark .profile .form-check-input {
+    background-color: #2a2a2a;
+    border-color: #444;
+}
+
+/* labels */
+body.dark .profile .form-check-label {
+    color: #f5f5f5;
+}
+
+/* botones dentro de profile */
+body.dark .profile .btn {
+    background-color: #3a3a3a;
+    color: #f5f5f5;
+    border-color: #555;
+}
+
+body.dark .profile .btn.btn-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+body.dark .profile .btn.btn-warning {
+    background-color: #ffc107;
+    color: #000;
+}
+/* solo para contenedor de area cambiar foto */
+body.dark #pfp,
+body.dark .profile {
+    background-color: #2a2a2a; /* fondo de la tarjeta */
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+/* texto del usario (123) */
+body.dark #pfp p,
+body.dark .profile p,
+body.dark .profile label {
+    color: #ababab;
+} 
+
+/*==================== INDEX.HTML ==================*/
+
+body.dark .album {
+	background-color: #2a2a2a !important; /* fondo del body*/
+  	color: #f5f5f5 !important; /* texto más claro */
+}
+
+/*tajetas*/ 
+
+body.dark .album .card {
+	background-color: #1e1e1e !important;
+	color: #ababab !important;
+	border-color: #444 !important;
+	border-radius: 8px;
+	
+}
+
+body.dark nav.navbar {
+    background-color: #1c1b1b !important;
+}
+
+body.dark .btn-light {
+    background-color: #3a3a3a !important;
+    color: #f1f1f1 !important;
+    border-color: #555 !important;
+}
+
+/*========================CATEGORIES.HTML=======================*/
+
+
+
+/* pegar link de css, de bootstrap, pegar el boton y pegar el script*/
+

@@ -338,42 +338,39 @@ main#login {
   font-weight: 500 !important;
 }
 
-/* ------------ bloque para color de estrella de calificaciones ------------*/
+.rating {
+  display: flex;
+  justify-content: center; /* centra las estrellas horizontalmente */
+  align-items: center;
+  margin: 20px auto 20px -313px; /* 20px arriba y abajo, centrado horizontal */
+  max-width: 100%; /* que nunca se salga del contenedor */
+  flex-wrap: wrap; /* que las estrellas bajen de línea si no caben */
+  gap: 10px; /* separación entre estrellas */
+  padding: 0 10px; /* algo de espacio a los lados */
+}
+
+/* color de estrellas al pasar o seleccionar */
 .rating .stars input:checked ~ label i,
 .rating .stars label:hover i,
 .rating .stars label:hover ~ label i {
   color: gold;
 }
 
-/* ----------- bloque para movimiento de calificaciones ------------*/
-.rating {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 20px; /* separación vertical */
-  margin-left: 220px;/* separación desde el borde izquierdo*/
-  transform: none;
-}
-
-/* ------ responsibidad del apartado calificaciones --------------- */
-
-/* media queries para que no se salga en pantallas chicas */
+/* media queries para pantallas pequeñas */
 @media (max-width: 768px) {
   .rating {
-    margin-right: 100px;     
-    --rating-nudge: 10px;    /* menos nudge en tablet */
+    gap: 8px;
   }
 }
 
 @media (max-width: 480px) {
   .rating {
-    justify-content: center; /* en celular lo centramos */
-    margin-right: 0;
-    transform: none;         /* deshabilitamos el nudge en móvil */
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
   }
 }
+
+
 
 /*--------------color login-----------*/
 
@@ -394,14 +391,75 @@ main#login {
 
 /*------Deja tu comentario ---------*/
 #formulario-calificacion {
-  margin-left:220px;   /* mueve el bloque hacia la derecha */
-  width: fit-content;
+  width: 90%;                /* ocupa casi todo el contenedor */
+  max-width: 1000px;         /* no se haga gigante en desktop */
+  margin: 20px auto;         /* centrado horizontal */
+  display: block;
 }
 
-
 #comentario {
-  width: 1000px;      /* ancho fijo más pequeño que el contenedor */
-  max-width: 100%;   /* para que no se pase del contenedor en pantallas pequeñas */
-  display: block;    
-  margin: 0 auto;    /* centra horizontalmente */
+  width: 100%;               /* ocupa todo el ancho del formulario */
+  max-width: 100%;           /* nunca se pase del contenedor */
+  display: block;
+  padding: 10px;
+  box-sizing: border-box;    /* padding no rompe ancho */
+  margin: 0 auto;
+}
+
+/* media queries para pantallas pequeñas */
+@media (max-width: 768px) {
+  #formulario-calificacion {
+    width: 95%;              /* ocupa más ancho en tablet */
+  }
+}
+
+@media (max-width: 480px) {
+  #formulario-calificacion {
+    width: 100%;             /* ocupa todo el ancho en móvil */
+  }
+}
+
+/* resposnividad productos relacionados*/ 
+
+/* Contenedor principal */
+.contenedor-principal {
+  width: 90%;
+  max-width: 1200px;  /* ancho máximo para desktop */
+  margin: 0 auto;     /* centra todo el contenido */
+  padding: 0 20px;    /* espacio interno */
+}
+
+/* Contenedor del título */
+.contenedor-rel-title {
+  display: flex;
+  padding-left: 900%;
+  justify-content: flex-end; /* mueve el título a la derecha del contenedor */
+  margin: 20px 0;
+}
+
+/* Título */
+#rel-title {
+  text-align: right;   /* alineación interna del texto */
+  max-width: 600px;    /* ancho máximo del título */
+  width: 100%;         /* ocupa todo el ancho disponible del contenedor */
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 768px) {
+  .contenedor-rel-title {
+    justify-content: flex-start; /* más a la izquierda en tablet */
+  }
+  #rel-title {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenedor-rel-title {
+    justify-content: center; /* centrado en móvil */
+  }
+  #rel-title {
+    text-align: center;
+    width: 100%;
+  }
 }
