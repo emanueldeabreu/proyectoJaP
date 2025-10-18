@@ -463,3 +463,49 @@ main#login {
     width: 100%;
   }
 }
+
+/*------- footer cart.html-----------*/
+html, body {
+  height: 100%; /* necesario para que el body ocupe toda la altura */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* ocupa todo el espacio disponible */
+}
+
+/* color del navbar*/ 
+nav.navbar {
+    background-color: #007bff !important; /* !important fuerza el cambio sobre Bootstrap */
+}
+
+/*-------------- nav bar my-profile---------------*/ 
+
+header.navbar {
+    background-color: #007bff !important; /* color de fondo del navbar*/
+}
+/* Cambiar alto del navbar */
+header.navbar {
+    padding-top: 0.1rem;   /* ajusta arriba */
+    padding-bottom: 0.rem; /* ajusta abajo */
+    height: 60px;           /* opcional, fuerza altura exacta */
+}
+
+/* ----------------- my-profile.html -------------*/
+
+/*soy vendedor textarea*/
+#descripcion-container textarea {
+    background-color: #f9f9f9; /* Fondo blanco */
+    color: black; /* Texto negro */
+    border: 1px solid #ccc; /* Borde gris, opcional */
+}
+/* navbar my-profile.html */
+#my-profile-page > header.navbar {
+    height: 48px !important;       /* altura exacta que querés */
+    min-height: 48px !important;   /* asegura que no crezca */
+    padding-top: 0 !important;     /* elimina padding interno */
+    padding-bottom: 0 !important;
+    line-height: 48px !important;  /* centra verticalmente el contenido */
+}
