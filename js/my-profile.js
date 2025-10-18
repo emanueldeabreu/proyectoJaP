@@ -57,6 +57,39 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // === 5️⃣.2 Subir una foto ===
+    const uploadPhotoInput = document.getElementById("upload-photo");
+
+    uploadPhotoInput.addEventListener("change", () => {
+    const file = uploadPhotoInput.files[0];
+    if (!file) return;
+
+    // Comprobación opcional de tamaño (1MB máx)
+    if (file.size > 1024 * 1024) {
+        alert("La imagen es demasiado grande. Selecciona una de menos de 1MB.");
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function (event) {
+        const base64Image = event.target.result;
+
+        // Mostrar la imagen como nueva foto de perfil
+        profileImg.src = base64Image;
+
+        // Guardar en localStorage como parte del perfil
+        const savedProfile = JSON.parse(localStorage.getItem("userProfile")) || {};
+        savedProfile.pfpImage = base64Image;
+        localStorage.setItem("userProfile", JSON.stringify(savedProfile));
+
+        // Ocultar el selector de opciones
+        photoOptions.classList.add("hidden");
+    };
+
+    reader.readAsDataURL(file); // Convierte a base64
+    });
+
+
     // === 6️⃣ Cargar los datos guardados previamente ===
     const savedProfile = JSON.parse(localStorage.getItem("userProfile")) || {};
     if (savedProfile.usuario) usuarioField.value = savedProfile.usuario;        // Cargar usuario
