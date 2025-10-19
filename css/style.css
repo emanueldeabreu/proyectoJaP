@@ -224,139 +224,14 @@ Revisar medidas desde open with liveserver
 	#pfp, .profile {
 		width: 100%;
 	}
+	
+	.related-item {
+    max-width: 45%; /* 2 por fila en tablets/móviles grandes */
+	}
 }
 
 
 /*end my-profile*/
-
-body {
-	min-height: 90vh;
-	position: relative;
-
-}
-
-.producto {
-	/*products.html*/
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 15px;
-	border-radius: 8px;
-	margin-bottom: 20px;
-	margin-top: 30px;
-}
-
-.producto img {
-	/*products.html*/
-	width: 140px;
-	background-color: #ccc;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 6px;
-	margin-right: 20px;
-}
-
-.contInfo {
-	/*products.html*/
-	flex: 1;
-	background-color: #F9F9F9;
-}
-
-.info {
-	/*products.html*/
-	margin-left: 20px;
-	margin-top: 10px;
-}
-
-.info h3 {
-	/*products.html*/
-	margin: 5px 0 0;
-	color: #555;
-}
-
-.detalles {
-	/*products.html*/
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-	gap: 5px;
-	font-weight: bold;
-	margin-right: 20px;
-	font-size: 1.5ex;
-}
-
-#products-container {
-	/*products.html*/
-	display: grid;
-	gap: 20px;
-}
-
-/*----Responsividad general----*/
-
-#child-login {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-areas: "section-area div-area";
-	place-items: center;
-	height: 90vh;
-}
-
-.section-area {
-	grid-area: section-area;
-}
-
-.div-area {
-	grid-area: div-area;
-}
-
-#Bienvenido h1{
-	color: oklch(0.96 0.03 239);
-	font-size: 4rem;
-}
-
-#bodyLogin {
-	background: linear-gradient(to left, oklch(0.96 0.01 239) 50%, oklch(57.182% 0.20352 257.075) 50%);
-	display: grid;
-	grid-template-rows: 3fr 0.3fr;
-}
-
-#bodyLogin p, h1, h2{
-	font-size: 1rem;
-
-}
-
-/* id contraseña | registro*/ 
-
-#forgot-psw{
-	width: 30vw;
-}
-
-#forgot-psw a{
-	font-size: 1.5vh;
-}
-
-h4 {
-	font-size: 2rem;
-}
-
-form img {
-	width: 2vw;
-}
-
-.separador {
-	height: 2rem;
-}
-
-.form-control {
-	/*input para usuario y contraseña*/
-	height: 3rem;
-}
-
-::placeholder {
-	font-size: 1rem;
-}
-
 #related p{
 	font-size: 1.8rem;
 	margin-left: 10%;
@@ -396,12 +271,6 @@ form img {
 	height: 200px; /* altura fija */
 	object-fit: cover; /* recorta si es necesario */
 	padding: 20px;
-}
-
-@media (max-width: 768px) {
-	.related-item {
-    max-width: 45%; /* 2 por fila en tablets/móviles grandes */
-	}
 }
 
 .product-card {
@@ -593,12 +462,6 @@ nav {
         position: relative;
     }
 
-	#bodyLogin {
-		background: linear-gradient(to top, oklch(0.96 0.01 239) 80%, oklch(57.182% 0.20352 257.075) 20%);
-		display: grid;
-	}
-
-
     .producto {
         flex-direction: column;
         align-items: stretch;
@@ -659,90 +522,11 @@ nav {
         width: 15vw;
         height: 15vw;
     }
-	#child-login {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto;
-        gap: 1.5rem;
-    }
-
-    #Bienvenido h1 {
-        font-size: 2rem;
-    }
-
-    #login {
-        transform: translateY(0);
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .input-login {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .input-login img {
-        width: 40px; /* íconos más pequeños */
-        margin-bottom: 0.5rem;
-    }
-
-    #btn_login, #btn_register {
-        width: 100%;
-    }
 }
 
 /*-----Responsivilidad tabletas------*/
 
 @media (min-width: 540px) and (max-width: 1023px) { /*login.html*/
-    .container-login{
-        width: 70%;
-    }
-    h4{
-        font-size: 2rem;
-    }
-    .input-login{
-        width: 100%;
-        height: 4rem;
-    }
-    .form-control{
-        height: 3rem;
-    }
-    .separador{
-        height: 2.5rem;
-    }
-    ::placeholder{
-        font-size: 1rem;
-    } 
-	#child-login {
-        display: grid;
-        grid-template-columns: 1fr; /* Una columna */
-        grid-template-rows: auto auto;
-        gap: 2rem;
-        overflow: visible;
-    }
-
-    #Bienvenido, #login-section {
-        display: block;
-        text-align: center;
-    }
-
-    #Bienvenido h1 {
-        font-size: 2.5rem;
-    }
-
-    #login {
-        transform: translateY(0);
-        margin: 0 auto;
-        width: 80%;
-    }
-	#bodyLogin {
-		background: linear-gradient(to top, oklch(0.96 0.01 239) 80%, oklch(57.182% 0.20352 257.075) 20%);
-		display: grid;
-	}
-}	
-
-@media (min-width: 540px) and (max-width: 1023px) {
-
     .producto {
         flex-direction: column;
         align-items: stretch;
@@ -788,35 +572,6 @@ nav {
     max-width: 20%;
     max-height: 20%;
     }
-}
-@media (min-width: 540px) and (max-width: 1023px) {
-
-	/*login.html*/
-	.container-login {
-		width: 70%;
-
-	}
-
-	h4 {
-		font-size: 2rem;
-	}
-
-	.input-login {
-		width: 100%;
-		height: 4rem;
-	}
-
-	.form-control {
-		height: 3rem;
-	}
-
-	.separador {
-		height: 2.5rem;
-	}
-
-	::placeholder {
-		font-size: 1rem;
-	}
 
 	#products-container {
 		grid-template-columns: repeat(2, 1fr);
@@ -881,107 +636,9 @@ nav {
 	}
 }	
 
-/* ---------- Footer -----------*/
-
-#footer-login {
-	background-color: transparent !important;
-	color: black !important; /* texto normal en negro */
-	text-align: left;              
-	padding: 1rem 0 1rem 0px;    
-	width: 100%;
-	font-size: 1rem;
-}
-
-/* Enlaces en negro y subrayados */
-#footer-login a {
-  color: black !important;  /* fuerza negro al enlace */
-  text-decoration: underline;    /* subrayado */
-}
-
-/* Opcional: si querés que no cambie el color al pasar el mouse */
-#footer-login a:hover {
-	color: black !important;
-	text-decoration: underline;
-}
-
 nav.navbar {
-    background-color: #007bff!important; /* tu color personalizado */
-    color: white; /* texto en blanco para que contraste */
-}
-#primera-vez {
-  position: fixed;       /* siempre visible, flota sobre todo */
-  top: auto;             /* no definimos top por defecto */
-  bottom: 330px;          /* puedes cambiarlo */
-  left: auto;            /* no definimos left por defecto */
-  right: 20px;           /* puedes cambiarlo */
-}
-
-/* Ejemplo de cómo moverlo manualmente */
-#primera-vez.custom-position {
-  top: 50px;            /* desde arriba */
-  left: 50px;           /* desde la izquierda */
-  bottom: auto;         /* anulamos el bottom */
-  right: auto;          /* anulamos el right */
-}
-/*-------------- cajas de texto usuario y contraseña ------------------*/
-.input-login {
-	display: flex;
-	align-items: center;
-	background-color: #fff;
-    border-radius: 30px;  /* bordes más redondos */
-	padding: 5px 15px;
-	border: 1px solid #ccc;
-	margin-bottom: 15px;
-}
-
-.input-login img {
-	width: 25px;
-	height: 25px;
-	margin-right: 10px;
-	border: none; /* quita borde del thumbnail */
-}
-
-.input-login input.form-control {
-	border: none;
-	outline: none;
-	flex: 1;
-	border-radius: 30px;
-	padding: 10px 15px;
-	background-color: transparent;
-}
-
-.input-login input.form-control:focus {
-	box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
-}
-
-/*------------- BOTONES ingresar y crear cuenta -----------------*/
-#btn_login,
-#btn_register {
-	border-radius: 25px; /* bordes redondeados */
-	padding: 10px 25px;
-	font-weight: 600;
-	border: none;
-	transition: all 0.3s ease;
-}
-
-/* Ingresar (principal) */
-#btn_login {
-background-color: #007bff;
-color: white;
-}
-
-#btn_login:hover {
-	background-color: #0056b3;
-}
-
-/* Registrar (secundario) */
-#btn_register {
-	background-color: #28a745;
-	color: white;
-}
-
-#btn_register:hover {
-	background-color: #28a745;
+    background-color: #007bff!important;
+    color: white;
 }
 
 /*------------ boton volver arriba ----------------*/
