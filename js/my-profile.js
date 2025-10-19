@@ -1,51 +1,46 @@
-// Esperamos a que todo el HTML se cargue antes de ejecutar el JS
 document.addEventListener("DOMContentLoaded", () => {
 
-    // === 1️⃣ Obtenemos referencias a todos los elementos del perfil ===
-    const emailField = document.getElementById("email");               // Campo de correo
-    const usuarioField = document.getElementById("usuario");           // Campo de usuario visible
-    const nombreField = document.getElementById("nombre");             // Campo de nombre completo
-    const telefonoField = document.getElementById("telefono");         // Campo de teléfono
-    const vendedorCheck = document.getElementById("vendedor");         // Checkbox "Soy vendedor"
-    const descripcionContainer = document.getElementById("descripcion-container"); // Contenedor de descripción
-    const descripcionField = document.getElementById("descripcion");   // Textarea de descripción
-    const saveButton = document.getElementById("save-profile");        // Botón "Guardar cambios"
-    const profileName = document.getElementById("profile-name");       // Nombre que se muestra en el perfil
-    const profileImg = document.getElementById("profile-img");         // Imagen de perfil principal
+    const emailField = document.getElementById("email");
+    const usuarioField = document.getElementById("usuario");
+    const nombreField = document.getElementById("nombre");
+    const telefonoField = document.getElementById("telefono");
+    const vendedorCheck = document.getElementById("vendedor");
+    const descripcionContainer = document.getElementById("descripcion-container");
+    const descripcionField = document.getElementById("descripcion");
+    const saveButton = document.getElementById("save-profile");
+    const profileName = document.getElementById("profile-name");
+    const profileImg = document.getElementById("profile-img");
     const changePhotoBtn = document.getElementById("change-photo");    // Botón para mostrar opciones de foto
     const photoOptions = document.getElementById("photo-options");     // Contenedor de fotos predeterminadas
 
-    // === 2️⃣ Cargar el email con el que el usuario inició sesión ===
+    // Cargar el email con el que el usuario inició sesión
     // Si no hay usuario en localStorage, usamos un valor por defecto
-    const userEmail = localStorage.getItem("usuario") || "usuario@correo.com";
+    const userEmail = localStorage.getItem("usuario") || "usuario@correo.com"; // Correo por defecto para evitar problemas
     emailField.value = userEmail;
     profileName.textContent = userEmail; // Mostramos el email como nombre temporal
 
-    // === 3️⃣ Mostrar/ocultar campo descripción según el checkbox ===
+    // Mostrar/ocultar campo descripción si es vendedor
     vendedorCheck.addEventListener("change", () => {
-        // Si el checkbox está activo, mostramos la descripción; si no, la ocultamos
         descripcionContainer.classList.toggle("hidden", !vendedorCheck.checked);
     });
 
-    // === 4️⃣ Mostrar/ocultar las opciones de foto cuando se hace clic en el botón ===
+    // Mostrar/ocultar las opciones de foto cuando se hace clic en el botón
     changePhotoBtn.addEventListener("click", () => {
-        photoOptions.classList.toggle("hidden"); // Alterna entre mostrar y ocultar
+        photoOptions.classList.toggle("hidden");
     });
+
     const resetPhotoBtn = document.getElementById("reset-photo");
 
     resetPhotoBtn.addEventListener("click", () => {
-        // Cambiamos la foto principal a la predeterminada
-        profileImg.src = "img/pfp.jpeg";
-
-        // No guardamos todavía, se guardará al tocar el botón "Guardar cambios"
+        profileImg.src = "img/pfp.jpeg";    // Foto general predeterminada
     });
 
 
-    // === 5️⃣ Seleccionar una foto predeterminada ===
+    // Seleccionar una nueva foto predeterminada
     document.querySelectorAll(".pfp-option").forEach(img => {
         img.addEventListener("click", () => {
             const selected = img.getAttribute("data-pfp"); // Obtenemos la ruta de la foto seleccionada
-            profileImg.src = selected; // Cambiamos la imagen principal a la seleccionada
+            profileImg.src = selected; // Cambiamos la imagen general a la nueva seleccionada
 
             // --- Guardar la selección en userProfile ---
             // Primero obtenemos los datos previos del perfil (si existen)
@@ -57,7 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // === 5️⃣.2 Subir una foto ===
+
+
+
+    // Subir una foto
     const uploadPhotoInput = document.getElementById("upload-photo");
 
     uploadPhotoInput.addEventListener("change", () => {
@@ -90,7 +88,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    // === 6️⃣ Cargar los datos guardados previamente ===
+
+
+
+    // Cargar los datos guardados previamente
     const savedProfile = JSON.parse(localStorage.getItem("userProfile")) || {};
     if (savedProfile.usuario) usuarioField.value = savedProfile.usuario;        // Cargar usuario
     if (savedProfile.nombre) nombreField.value = savedProfile.nombre;            // Cargar nombre completo
@@ -103,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (savedProfile.usuario) profileName.textContent = savedProfile.usuario;    // Mostrar nombre de usuario
     if (savedProfile.pfpImage) profileImg.src = savedProfile.pfpImage;           // Cargar foto de perfil seleccionada
 
-    // === 7️⃣ Guardar los cambios cuando se presiona el botón "Guardar cambios" ===
+    // Guardar los cambios cuando se presiona el botón "Guardar cambios"
     saveButton.addEventListener("click", () => {
         // Creamos un objeto con todos los datos actuales del perfil
         const profileData = {
@@ -118,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Guardamos todo en localStorage
         localStorage.setItem("userProfile", JSON.stringify(profileData));
-        profileName.textContent = profileData.usuario; // Actualizamos el nombre en la UI
+        profileName.textContent = profileData.usuario; // Actualizamos el nombre
         alert("✅ Perfil guardado correctamente");      // Mensaje de confirmación
     });
 });
