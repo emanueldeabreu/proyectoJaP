@@ -56,11 +56,10 @@ function renderProductInfo(product) {
           <p id="costo"><strong>Precio:</strong> ${product.currency} ${product.cost}</p>
           <p id="vendidos"><strong>Cantidad de vendidos:</strong> ${product.soldCount}</p>
           <p id="categoría"><strong>Categoría:</strong> ${product.category}</p>
+          <button id="comprar-btn" class="btn btn-success mt-3">Comprar</button>  
         </div>
       </div>
-    </div>
   `;
-
   // ----------------- COMENTARIOS EXISTENTES -----------------
   const commentsBox = document.createElement("div");
   commentsBox.classList.add("product-card", "comments-box", "mt-4");
@@ -168,6 +167,25 @@ function renderProductInfo(product) {
     if (estrellaSeleccionada) {
       estrellaSeleccionada.checked = false;
     }
+  });
+
+  // -------------- FUNCIONALIDAD BOTON COMPRAR -------------
+
+  document.getElementById("comprar-btn").addEventListener("click", function () {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const productToSave = {
+      id: product.id,
+      name: product.name,
+      cost: product.cost,
+      currency: product.currency,
+      image: product.images[0]
+    };
+
+    cart.push(productToSave);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    window.location.href = "cart.html";
   });
 }
 
