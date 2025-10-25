@@ -188,6 +188,7 @@ function renderProductInfo(product) {
     window.location.href = "cart.html";
   });
 }
+// -----------------------------------------------------------------
 
 function fetchComments(url) {
   return fetch(url)
