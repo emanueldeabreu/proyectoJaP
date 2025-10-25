@@ -56,7 +56,9 @@ function renderProductInfo(product) {
           <p id="costo"><strong>Precio:</strong> ${product.currency} ${product.cost}</p>
           <p id="vendidos"><strong>Cantidad de vendidos:</strong> ${product.soldCount}</p>
           <p id="categoría"><strong>Categoría:</strong> ${product.category}</p>
-          <button id="comprar-btn" class="btn btn-success mt-3">Comprar</button>  
+          <button id="comprar-btn" class="btn btn-success mt-3">
+  Añadir al carrito <i class="bi bi-cart-plus-fill"></i>
+</button>
         </div>
       </div>
   `;
