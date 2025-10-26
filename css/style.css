@@ -668,3 +668,13 @@ transform: translateY(-3px);
 	top: 0.5rem;
 	right: 6rem;
 }
+
+/* ------------ boton comprar ----------------*/
+
+#comprar-btn {
+	background-color: #0d6efd;
+}
+#comprar-btn:hover { 
+background-color: #28a745;
+transform: translateY(-3px);
+}
