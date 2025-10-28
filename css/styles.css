@@ -509,36 +509,3 @@ header.navbar {
     padding-bottom: 0 !important;
     line-height: 48px !important;  /* centra verticalmente el contenido */
 }
-
-/* ------------ boton carrito en el navbar de index.html --------------*/
-
-.carrito-btn {
-  background-color: #28a745; /* color del botón */
-  color: #ffffff;      /* color del texto/icono */
-  border: 2px solid #0d6efd;  /* borde */
-  border-radius: 50px;  /* bordes redondeados */
-  font-weight: 900;
-  padding: 6px 16px;
-  transition: all 0.3s ease;  /* animación suave */
-  font-size: 1rem;  /* cambia el tamaño del icono */
-  vertical-align: middle;  /* lo centra verticalmente */
-}
-  
-
-
-/* efecto al pasar el mouse */
-.carrito-btn:hover {
-  background-color: #0d6efd;
-  color: #fff;
-  transform: scale(1.05);
-}
-
-/* movimiento del boton */ 
-.carrito-btn {
-  position: relative;
-  left: -140px;  /* lo mueve 10px hacia la izquierda */
-}
-.carrito-btn {
-  position: relative;
-  top: 1px; /* o +3px si querés bajarlo */
-}
