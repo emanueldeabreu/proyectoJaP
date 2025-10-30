@@ -678,3 +678,120 @@ transform: translateY(-3px);
 background-color: #28a745;
 transform: translateY(-3px);
 }
+
+/* -------------- Contenedor principal del carrito --------------*/
+#cart-items {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Card del producto*/
+.card {
+    border-radius: 1rem;          /* Bordes redondeados */
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Columna de imagen*/
+.card img-cart {
+    max-height: 6rem;             /* Tamaño relativo */
+    width: auto;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease-out;
+}
+
+.card img:hover {
+    transform: scale(1.05);
+}
+
+/* Columna de información*/
+.card-title {
+    font-size: 1.2rem;
+    color: oklch(64.673% 0.00007 271.152); /* Color texto oscuro */
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: oklch(60.999% 0.00007 271.152);
+    margin-bottom: 0.5rem;
+}
+
+/* Controles de cantidad*/
+.quantity-input {
+    width: 3.5rem;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.3rem;
+}
+
+button.increase, button.decrease {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.3rem;
+    background-color: oklch(90.67% 0.0001 271.152);
+    cursor: pointer;
+}
+
+button.increase:hover, button.decrease:hover {
+    background-color: oklch(70.659% 0.00114 13.296);
+}
+
+/* Columna de subtotal + eliminar*/
+.col-md-3 p.mb-1 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.eliminar-producto {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.5rem;
+    background-color: oklch(57.019% 0.20858 26.986);
+    color: oklch(86.891% 0.07021 18.523);
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.eliminar-producto:hover {
+    background-color: oklch(66.158% 0.2175 25.409);
+}
+
+/* Mensaje de carrito vacío*/
+#empty-cart {
+    font-size: 1.2rem;
+    color: oklch(94.309% 0.00011 271.152);
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: oklch(67.405% 0.21357 24.946);
+}
+
+/* Total y botones debajo*/
+#cart-total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: oklch(0.2 0.05 25);
+    text-align: right;
+    margin-top: 1rem;
+}
+
+#cart-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+#cart-buttons a {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
