@@ -174,21 +174,42 @@ function renderProductInfo(product) {
   // -------------- FUNCIONALIDAD BOTON COMPRAR -------------
 
   document.getElementById("comprar-btn").addEventListener("click", function () {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    const productToSave = {
-      id: product.id,
-      name: product.name,
-      cost: product.cost,
-      currency: product.currency,
-      image: product.images[0]
-    };
+  // Producto con cantidad inicial
+  const productToSave = {
+    id: product.id,
+    name: product.name,
+    cost: product.cost,
+    currency: product.currency,
+    image: product.images[0],
+    quantity: 1
+  };
 
+  // Buscar si el producto ya existe en el carrito
+  const existingProduct = cart.find(p => p.id === product.id);
+
+  if (existingProduct) {
+    // Si ya está, aumentar la cantidad
+    existingProduct.quantity += 1;
+  } else {
+    // Si no está, agregarlo nuevo
     cart.push(productToSave);
-    localStorage.setItem("cart", JSON.stringify(cart));
+  }
 
-    window.location.href = "cart.html";
-  });
+  // Guardar en localStorage
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Actualizar el badge si existe
+  const badge = document.getElementById("cart-badge");
+  if (badge) {
+      const totalQty = cart.reduce((sum, p) => sum + (p.quantity || 1), 0);
+      badge.textContent = totalQty;
+  }
+
+  // Navegar al carrito
+  window.location.href = "cart.html";
+});
 }
 // -----------------------------------------------------------------
 
