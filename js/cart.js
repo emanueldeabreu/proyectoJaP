@@ -122,4 +122,29 @@ document.addEventListener("DOMContentLoaded", () => {
     // Inicializar renderizado
     renderCart();
     actualizarBadge()
+
+    //. Actualizar subtotal en tiempo real al editar manualmente la cantidad
+document.querySelectorAll(".quantity-input").forEach(input => {
+    input.addEventListener("input", e => {
+        const card = e.target.closest(".card");
+        const id = card.dataset.id;
+        const newQuantity = parseInt(e.target.value) || 1;
+
+        // Buscar producto correspondiente en el carrito
+        const product = cart.find(p => p.id == id);
+        if (product) {
+            product.quantity = newQuantity;
+
+            // Actualizar subtotal en la pantalla
+            const subtotalElement = document.getElementById(`subtotal-${id}`);
+            subtotalElement.textContent = `${product.currency} ${product.cost * newQuantity}`;
+
+            // Guardar cambios en localStorage
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            // Actualizar badge
+            actualizarBadge();
+        }
+    });
+});
 });
