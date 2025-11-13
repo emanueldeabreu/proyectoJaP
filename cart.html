@@ -45,15 +45,108 @@
 
   <main>
     <div class="container mt-4">
-    <h2 class="mb-4">Mi Carrito</h2>
+    <h2 class="mb-4 text-center">Mi Carrito</h2>
     <div id="cart-items">
       <!----------------- aca se cargan los productos --------------------->
     </div>
     
+    <!---------------- boton de finalizar compra-------------------->
+    <div class="text-center mt-4">
+  <button id="finalizarCompra" class="btn btn-success px-5" data-bs-toggle="modal" data-bs-target="#modalCompra">
+    Finalizar compra</button>
+    </div>
+    <!---------------- final boton de finalizar compra-------------------->
+    
+    <!--------------- ventana de confirmación  de compra -------------------->
+<div class="modal fade" id="modalCompra" tabindex="-1" aria-labelledby="modalCompraLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalCompraLabel">Finalizar compra</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body">
+        <h6>Tipo de envío</h6>
+        <div class="mb-3">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="envio" id="envioPremium" value="premium">
+            <label class="form-check-label" for="envioPremium">Premium 2 a 5 días (15%)</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="envio" id="envioExpress" value="express">
+            <label class="form-check-label" for="envioExpress">Express 5 a 8 días (7%)</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="envio" id="envioStandard" value="standard">
+            <label class="form-check-label" for="envioStandard">Standard 12 a 15 días (5%)</label>
+          </div>
+        </div>
+
+        <hr>
+        <h6>Dirección de envío</h6>
+        <div class="row g-3 mb-3">
+          <div class="col-md-4">
+            <input type="text" id="calle" class="form-control" placeholder="Calle Ej: 18 de Julio">
+          </div>
+          <div class="col-md-4">
+            <input type="text" id="numero" class="form-control" placeholder="Número Ej: 1234">
+          </div>
+          <div class="col-md-4">
+            <input type="text" id="esquina" class="form-control" placeholder="Esquina Ej: Ejido">
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="localidad" class="form-control" placeholder="Localidad Ej: Centro">
+          </div>
+          <div class="col-md-6">
+            <input type="text" id="departamento" class="form-control" placeholder="Departamento Ej: Montevideo">
+          </div>
+        </div>
+
+        <hr>
+
+        <h6>Forma de pago</h6>
+        <div id="pago">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pago" id="pagoTarjeta" value="tarjeta">
+            <label class="form-check-label" for="pagoTarjeta">Tarjeta de crédito</label>
+          </div>
+          <div id="tarjetaCampos" class="mt-2 ms-3" style="display:none;">
+            <input type="text" id="numTarjeta" class="form-control mb-2" placeholder="Número de tarjeta">
+            <input type="text" id="vencimiento" class="form-control" placeholder="Vencimiento (MM/AA)">
+          </div>
+
+          <div class="form-check mt-2">
+            <input class="form-check-input" type="radio" name="pago" id="pagoTransferencia" value="transferencia">
+            <label class="form-check-label" for="pagoTransferencia">Transferencia bancaria</label>
+          </div>
+          <div id="transferenciaCampos" class="mt-2 ms-3" style="display:none;">
+            <input type="text" id="numCuenta" class="form-control" placeholder="Número de cuenta">
+          </div>
+        </div>
+        <div class="form-check mt-2">
+    <input class="form-check-input" type="radio" name="pago" id="pagoMercadoPago" value="mercadopago">
+    <label class="form-check-label" for="pagoMercadoPago">Mercado Pago</label>
+  </div>
+  <div id="mercadoPagoCampos" class="mt-2 ms-3" style="display:none;">
+    <p class="text-muted small">Serás redirigido a la plataforma de Mercado Pago para completar tu pago.</p>
+  </div>
+</div>
+        <hr>
+
+        <div class="text-center mt-4">
+          <button id="confirmarCompra" class="btn btn-success px-5">
+            Confirmar compra
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--------------- final ventana de confirmación  de compra -------------------->
     <div id="empty-cart" class="alert alert-info text-center" style="display: none;">
       Tu carrito está vacío.
     </div>
-
   </main>
 
   <footer class="text-muted">
