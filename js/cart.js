@@ -148,3 +148,86 @@ document.querySelectorAll(".quantity-input").forEach(input => {
     });
 });
 });
+
+/////////// VALIDACION DE FINALIZACIÓN DE COMPRA //////////
+
+// mostrar/ocultar campos según forma de pago
+document.querySelectorAll('input[name="pago"]').forEach(radio => {
+    radio.addEventListener('change', function () {
+    document.getElementById('tarjetaCampos').style.display = this.value === 'tarjeta' ? 'block' : 'none';
+    document.getElementById('transferenciaCampos').style.display = this.value === 'transferencia' ? 'block' : 'none';
+});
+});
+
+// validación al hacer clic en "confirmar compra"
+document.getElementById('confirmarCompra').addEventListener('click', function (e) {
+    e.preventDefault();
+
+// validación dirección de envío
+    const camposDireccion = ['calle', 'numero', 'esquina', 'localidad', 'departamento'];
+    for (const id of camposDireccion) {
+    const campo = document.getElementById(id);
+    if (!campo.value.trim()) {
+        alert('Por favor, complete los campos requeridos.');
+        campo.focus();
+        return;
+    }
+    }
+
+// validación del tipo de envío
+    if (!document.querySelector('input[name="envio"]:checked')) {
+    alert('Por favor, seleccione un tipo de envío.');
+    return;
+    }
+
+// validación forma de pago
+    const pagoSeleccionado = document.querySelector('input[name="pago"]:checked');
+    if (!pagoSeleccionado) {
+    alert('Por favor, seleccione una forma de pago.');
+    return;
+    }
+
+    const tipoPago = pagoSeleccionado.value;
+
+    if (tipoPago === 'tarjeta') {
+    const numTarjeta = document.getElementById('numTarjeta').value.trim().replace(/\s/g, '');
+    const vencimiento = document.getElementById('vencimiento').value.trim();
+
+    if (!/^\d{13,19}$/.test(numTarjeta)) {
+        alert('El número de tarjeta debe contener entre 13 y 19 dígitos.');
+    return;
+    }
+
+    const vencimientoRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+    if (!vencimientoRegex.test(vencimiento)) {
+        alert('El vencimiento debe estar en formato MM/AA (ej: 12/27).');
+    return;
+    }
+
+    const [mesStr, anioStr] = vencimiento.split('/');
+    const mes = parseInt(mesStr, 10);
+    const anio = parseInt(anioStr, 10);
+    const hoy = new Date();
+    const anioActual2d = hoy.getFullYear() % 100;
+    const mesActual = hoy.getMonth() + 1;
+
+    if (anio < anioActual2d || (anio === anioActual2d && mes < mesActual)) {
+        alert('Tarjeta vencida.');
+    return;
+    }
+    } else if (tipoPago === 'transferencia') {
+        const numCuenta = document.getElementById('numCuenta').value.trim();
+    if (!numCuenta) {
+        alert('Por favor, ingrese el número de cuenta.');
+    return;
+    }
+// permitir solo dígitos y guiones
+    if (!/^[\d-]+$/.test(numCuenta)) {
+        alert('El número de cuenta solo puede contener números.');
+    return;
+    }
+    }
+
+// confirmación
+    alert('¡Compra confirmada! Te enviaremos un mail con el detalle de compra');
+});
