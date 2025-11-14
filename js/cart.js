@@ -164,7 +164,7 @@ document.getElementById('confirmarCompra').addEventListener('click', function (e
     e.preventDefault();
 
 // validación dirección de envío
-    const camposDireccion = ['calle', 'numero', 'esquina', 'localidad', 'departamento'];
+    const camposDireccion = ['calle', 'numero', 'esquina', 'barrio', 'departamento'];
     for (const id of camposDireccion) {
     const campo = document.getElementById(id);
     if (!campo.value.trim()) {

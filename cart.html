@@ -16,8 +16,8 @@
   <link rel="icon" href="img/icon.ico">
   
 </head>
-
 <body>
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -85,26 +85,49 @@
 
         <hr>
         <h6>Dirección de envío</h6>
-        <div class="row g-3 mb-3">
+<div class="row g-3 mb-3">
+  <div class="col-md-6">
+    <select id="departamento" class="form-select">
+      <option value="" disabled selected>Selecciona un departamento</option>
+      <option value="artigas">Artigas</option>
+      <option value="canelones">Canelones</option>
+      <option value="cerro-largo">Cerro Largo</option>
+      <option value="colonia">Colonia</option>
+      <option value="durazno">Durazno</option>
+      <option value="flores">Flores</option>
+      <option value="florida">Florida</option>
+      <option value="lavalleja">Lavalleja</option>
+      <option value="maldonado">Maldonado</option>
+      <option value="montevideo">Montevideo</option>
+      <option value="paysandu">Paysandú</option>
+      <option value="rio-negro">Río Negro</option>
+      <option value="rivera">Rivera</option>
+      <option value="rocha">Rocha</option>
+      <option value="salto">Salto</option>
+      <option value="san-jose">San José</option>
+      <option value="soriano">Soriano</option>
+      <option value="tacuarembo">Tacuarembó</option>
+      <option value="treinta-y-tres">Treinta y Tres</option>
+    </select>
+  </div>
+          <div class="col-md-6">
+            <input type="text" id="barrio" class="form-control" placeholder="Barrio Ej: Centro">
+          </div>
           <div class="col-md-4">
             <input type="text" id="calle" class="form-control" placeholder="Calle Ej: 18 de Julio">
           </div>
           <div class="col-md-4">
-            <input type="text" id="numero" class="form-control" placeholder="Número Ej: 1234">
+            <input type="text" id="numero" class="form-control" placeholder="Número Ej: 1122">
           </div>
           <div class="col-md-4">
             <input type="text" id="esquina" class="form-control" placeholder="Esquina Ej: Ejido">
           </div>
-          <div class="col-md-6">
-            <input type="text" id="localidad" class="form-control" placeholder="Localidad Ej: Centro">
-          </div>
-          <div class="col-md-6">
-            <input type="text" id="departamento" class="form-control" placeholder="Departamento Ej: Montevideo">
+          <div class="form-check mt-3">
+        <input class="form-check-input" type="checkbox" id="seguimientoCompra">
+        <label class="form-check-label" for="seguimientoCompra">Recibir seguimiento de mi compra</label>
           </div>
         </div>
-
         <hr>
-
         <h6>Forma de pago</h6>
         <div id="pago">
           <div class="form-check">
@@ -172,6 +195,6 @@
   <script src="js/loader.js"></script>
   <script src="js/modoscuro.js"></script>
   <script src="js/header.js"></script>
+  
 </body>
-
 </html>
