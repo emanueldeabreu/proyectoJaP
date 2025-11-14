@@ -156,7 +156,9 @@ document.querySelectorAll('input[name="pago"]').forEach(radio => {
     radio.addEventListener('change', function () {
     document.getElementById('tarjetaCampos').style.display = this.value === 'tarjeta' ? 'block' : 'none';
     document.getElementById('transferenciaCampos').style.display = this.value === 'transferencia' ? 'block' : 'none';
-});
+    document.getElementById('mercadoPagoCampos').style.display =
+            this.value === 'mercadopago' ? 'block' : 'none';
+    });
 });
 
 // validación al hacer clic en "confirmar compra"
@@ -168,7 +170,7 @@ document.getElementById('confirmarCompra').addEventListener('click', function (e
     for (const id of camposDireccion) {
     const campo = document.getElementById(id);
     if (!campo.value.trim()) {
-        alert('Por favor, complete los campos requeridos.');
+alert(`El campo "${id}" es obligatorio.`);
         campo.focus();
         return;
     }
@@ -222,7 +224,7 @@ document.getElementById('confirmarCompra').addEventListener('click', function (e
     return;
     }
 // permitir solo dígitos y guiones
-    if (!/^[\d-]+$/.test(numCuenta)) {
+    if (!/^\d+$/.test(numCuenta)) {
         alert('El número de cuenta solo puede contener números.');
     return;
     }
