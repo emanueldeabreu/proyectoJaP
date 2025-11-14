@@ -151,16 +151,6 @@ document.querySelectorAll(".quantity-input").forEach(input => {
 
 /////////// VALIDACION DE FINALIZACIÓN DE COMPRA //////////
 
-// mostrar/ocultar campos según forma de pago
-document.querySelectorAll('input[name="pago"]').forEach(radio => {
-    radio.addEventListener('change', function () {
-    document.getElementById('tarjetaCampos').style.display = this.value === 'tarjeta' ? 'block' : 'none';
-    document.getElementById('transferenciaCampos').style.display = this.value === 'transferencia' ? 'block' : 'none';
-    document.getElementById('mercadoPagoCampos').style.display =
-            this.value === 'mercadopago' ? 'block' : 'none';
-    });
-});
-
 // validación al hacer clic en "confirmar compra"
 document.getElementById('confirmarCompra').addEventListener('click', function (e) {
     e.preventDefault();
@@ -170,17 +160,29 @@ document.getElementById('confirmarCompra').addEventListener('click', function (e
     for (const id of camposDireccion) {
     const campo = document.getElementById(id);
     if (!campo.value.trim()) {
-alert(`El campo "${id}" es obligatorio.`);
+        alert(`El campo "${id}" es obligatorio.`);
         campo.focus();
         return;
     }
     }
 
 // validación del tipo de envío
-    if (!document.querySelector('input[name="envio"]:checked')) {
+const envioSeleccionado = document.querySelector('input[name="envio"]:checked');
+if (!envioSeleccionado) {
     alert('Por favor, seleccione un tipo de envío.');
     return;
+}
+
+const tipoEnvio = envioSeleccionado.value;
+
+// validación en caso de retiro en tienda
+if (tipoEnvio === 'retiro') {
+    const retirante = document.getElementById('retirante').value.trim();
+    if (!retirante) {
+        alert('Por favor indica el nombre de quién retirará el pedido.');
+        return;
     }
+}
 
 // validación forma de pago
     const pagoSeleccionado = document.querySelector('input[name="pago"]:checked');
@@ -218,18 +220,165 @@ alert(`El campo "${id}" es obligatorio.`);
     return;
     }
     } else if (tipoPago === 'transferencia') {
-        const numCuenta = document.getElementById('numCuenta').value.trim();
-    if (!numCuenta) {
-        alert('Por favor, ingrese el número de cuenta.');
+    const check = document.getElementById('transferenciaRealizada').checked;
+
+    if (!check) {
+        alert('Por favor confirme que ya realizó la transferencia.');
+        return;
+    }
+}
+
+// confirmación si todas las validaciones están OK
+    alert('¡Compra confirmada! Te enviaremos un mail con el detalle de compra');
+});
+
+// funcionalidad retiro en tienda
+document.addEventListener('DOMContentLoaded', () => {
+    const datosRetiro = document.getElementById('datosRetiro');
+    const radiosEnvio = document.querySelectorAll('input[name="envio"]');
+
+    if (!datosRetiro || radiosEnvio.length === 0) {
+    console.warn('datosRetiro o radios de envio no encontrados en el DOM');
     return;
     }
-// permitir solo dígitos y guiones
-    if (!/^\d+$/.test(numCuenta)) {
-        alert('El número de cuenta solo puede contener números.');
-    return;
+
+// función que actualiza visibilidad según el radio seleccionado
+    function actualizarDatosRetiro() {
+    const seleccionado = document.querySelector('input[name="envio"]:checked');
+    if (seleccionado && seleccionado.value === 'retiro') {
+        datosRetiro.style.display = 'block';
+    } else {
+        datosRetiro.style.display = 'none';
     }
     }
 
-// confirmación
-    alert('¡Compra confirmada! Te enviaremos un mail con el detalle de compra');
+// aplicar estado inicial (por si alguno viene preseleccionado)
+    actualizarDatosRetiro();
+
+// agregar listener a cada radio
+    radiosEnvio.forEach(radio => {
+    radio.addEventListener('change', actualizarDatosRetiro);
+});
+});
+
+// mostrar/ocultar campos según forma de pago
+document.querySelectorAll('input[name="pago"]').forEach(radio => {
+    radio.addEventListener('change', function () {
+    document.getElementById('tarjetaCampos').style.display = this.value === 'tarjeta' ? 'block' : 'none';
+    document.getElementById('transferenciaCampos').style.display = this.value === 'transferencia' ? 'block' : 'none';
+    document.getElementById('mercadoPagoCampos').style.display =
+            this.value === 'mercadopago' ? 'block' : 'none';
+    });
+});
+
+// funcionalidad que calcula el subtotal, costo de envio y total
+document.addEventListener('DOMContentLoaded', () => {
+
+    const UYU_A_USD = 1 / 40; // conversión random
+    const elSubtotal = document.getElementById('costoSubtotal');
+    const elEnvio = document.getElementById('costoEnvio');
+    const elTotal = document.getElementById('costoTotal');
+    const cartContainer = document.getElementById('cart-items');
+    const modalCompra = document.getElementById('modalCompra');
+
+// lee carrito probando varias claves y normaliza propiedades
+    function leerCarrito() {
+    const raw = JSON.parse(localStorage.getItem('cart')) || JSON.parse(localStorage.getItem('carrito')) || [];
+    // devolver array de objetos normalizados
+    return raw.map(p => ({
+        id: p.id,
+        cost: p.cost ?? p.unitCost ?? p.price ?? 0,
+        currency: p.currency ?? 'USD',
+        quantity: p.quantity ?? p.count ?? p.qty ?? 1
+    }));
+    }
+
+// calcula subtotal en USD
+    function calcularSubtotalUSD() {
+    const carrito = leerCarrito();
+    return carrito.reduce((acc, prod) => {
+    const precioUSD = (prod.currency === 'UYU' ? prod.cost * UYU_A_USD : prod.cost);
+    return acc + precioUSD * (Number(prod.quantity) || 0);
+    }, 0);
+}
+
+// actualiza los nodos DOM con formateo
+    function mostrarValores(subtotalUSD, envioUSD) {
+    elSubtotal && (elSubtotal.textContent = subtotalUSD.toFixed(2) + ' USD');
+    elEnvio && (elEnvio.textContent = (envioUSD === null ? '-' : envioUSD.toFixed(2) + ' USD'));
+    elTotal && (elTotal.textContent = (envioUSD === null ? '-' : (subtotalUSD + envioUSD).toFixed(2) + ' USD'));
+}
+
+// función principal que calcula según radio seleccionado
+    function actualizarCostos() {
+// si los elementos no existen, salir
+    if (!elSubtotal || !elEnvio || !elTotal) return;
+
+    const subtotal = calcularSubtotalUSD();
+    elSubtotal.textContent = subtotal.toFixed(2) + ' USD';
+
+    const seleccion = document.querySelector('input[name="envio"]:checked');
+    if (!seleccion) {
+// si no hay envío seleccionado mostramos guías
+    mostrarValores(subtotal, null);
+    return;
+}
+
+    let porcentaje = 0;
+    switch (seleccion.value) {
+    case 'premium': porcentaje = 0.15; break;
+    case 'express': porcentaje = 0.07; break;
+    case 'standard': porcentaje = 0.05; break;
+    case 'retiro': porcentaje = 0; break;
+    default: porcentaje = 0; break;
+}
+
+    const costoEnvio = subtotal * porcentaje;
+    mostrarValores(subtotal, costoEnvio);
+}
+
+// recalcula al abrir el modal (bootstrap 5)
+    if (modalCompra) {
+    modalCompra.addEventListener('shown.bs.modal', actualizarCostos);
+}
+
+// recalcula cuando cambia el radio de envío
+    document.querySelectorAll('input[name="envio"]').forEach(r => r.addEventListener('change', actualizarCostos));
+
+// event delegation: escucha en el contenedor del carrito para cambios de cantidad / botones ---
+if (cartContainer) {
+// clicks (increase/decrease/delete)
+    cartContainer.addEventListener('click', (e) => {
+    const target = e.target;
+// si es botón increase / decrease / eliminar-producto
+    if (target.closest('.increase') || target.closest('.decrease') || target.closest('.eliminar-producto')) {
+// pequeña demora para permitir que el otro handler que modifica localStorage termine
+    setTimeout(actualizarCostos, 50);
+    }
+    });
+
+// inputs de cantidad (se dispara al escribir)
+    cartContainer.addEventListener('input', (e) => {
+    if (e.target && e.target.classList && e.target.classList.contains('quantity-input')) {
+// guardado de cantidad lo maneja tu código; recalculamos después de un pequeño debounce
+        clearTimeout(cartContainer._debounceCostos);
+        cartContainer._debounceCostos = setTimeout(actualizarCostos, 150);
+    }
+    });
+}
+
+// si otras partes de tu código cambian el localStorage sin evento en la UI,
+// también intentamos recacular periódicamente (solo por 5 segundos tras carga)
+    let checks = 0;
+    const interval = setInterval(() => {
+    actualizarCostos();
+    checks++;
+    if (checks > 20) clearInterval(interval);
+}, 250);
+
+// llamada inicial
+    actualizarCostos();
+
+// exponer una función global por si la querés llamar desde otro script
+    window.actualizarCostosCarrito = actualizarCostos;
 });

@@ -47,17 +47,18 @@
     <div class="container mt-4">
     <h2 class="mb-4 text-center">Mi Carrito</h2>
     <div id="cart-items">
-      <!----------------- aca se cargan los productos --------------------->
+<!----------------- aca se cargan los productos --------------------->
     </div>
     
-    <!---------------- boton de finalizar compra-------------------->
+<!---------------- boton de finalizar compra-------------------->
     <div class="text-center mt-4">
   <button id="finalizarCompra" class="btn btn-success px-5" data-bs-toggle="modal" data-bs-target="#modalCompra">
     Finalizar compra</button>
     </div>
-    <!---------------- final boton de finalizar compra-------------------->
+<!---------------- final boton de finalizar compra-------------------->
     
-    <!--------------- ventana de confirmación  de compra -------------------->
+<!--------------- ventana de confirmación  de compra -------------------->
+
 <div class="modal fade" id="modalCompra" tabindex="-1" aria-labelledby="modalCompraLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -65,7 +66,6 @@
         <h5 class="modal-title" id="modalCompraLabel">Finalizar compra</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
-
       <div class="modal-body">
         <h6>Tipo de envío</h6>
         <div class="mb-3">
@@ -81,11 +81,18 @@
             <input class="form-check-input" type="radio" name="envio" id="envioStandard" value="standard">
             <label class="form-check-label" for="envioStandard">Standard 12 a 15 días (5%)</label>
           </div>
-        </div>
-
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="envio" id="retiroEntienda" value="retiro">
+            <label class="form-check-label" for="retiroEntienda">Retiro en tienda</label>
+          </div>
+          <div id="datosRetiro" style="display:none;">
+            <label for="retirante">Nombre de quien retira:</label>
+            <input type="text" id="retirante" placeholder="Ej: Martin Gómez">
+          </div>
+        </div>  
         <hr>
         <h6>Dirección de envío</h6>
-<div class="row g-3 mb-3">
+  <div class="row g-3 mb-3">
   <div class="col-md-6">
     <select id="departamento" class="form-select">
       <option value="" disabled selected>Selecciona un departamento</option>
@@ -132,32 +139,57 @@
         <div id="pago">
           <div class="form-check">
             <input class="form-check-input" type="radio" name="pago" id="pagoTarjeta" value="tarjeta">
-            <label class="form-check-label" for="pagoTarjeta">Tarjeta de crédito</label>
+            <label class="form-check-label" for="pagoTarjeta">Tarjeta de crédito o débito</label>
           </div>
           <div id="tarjetaCampos" class="mt-2 ms-3" style="display:none;">
+            <input type="text" id="titular" class="form-control mb-2" placeholder="Nombre del titular de la tarjetaa">
             <input type="text" id="numTarjeta" class="form-control mb-2" placeholder="Número de tarjeta">
-            <input type="text" id="vencimiento" class="form-control" placeholder="Vencimiento (MM/AA)">
+            <input type="text" id="vencimiento" class="form-control mb-2" placeholder="Vencimiento (MM/AA)">
+            <input type="text" id="cvv" class="form-control mb-2" placeholder="CVV">
           </div>
-
           <div class="form-check mt-2">
             <input class="form-check-input" type="radio" name="pago" id="pagoTransferencia" value="transferencia">
             <label class="form-check-label" for="pagoTransferencia">Transferencia bancaria</label>
           </div>
           <div id="transferenciaCampos" class="mt-2 ms-3" style="display:none;">
-            <input type="text" id="numCuenta" class="form-control" placeholder="Número de cuenta">
+            <p class="text-muted small mb-1">Realiza una transferencia a la siguiente cuenta:</p>
+            <ul class="small text-muted mb-2">
+              <li><strong>Banco:</strong> BROU</li>
+              <li><strong>Cuenta:</strong> 1234567890</li>
+              <li><strong>Titular:</strong> MiTienda S.A.</li>
+            </ul>
+            <input type="file" id="comprobante" accept="image/*,application/pdf" class="form-control mb-2">           
+          <div class="form-check mt-2">
+        <input class="form-check-input" type="checkbox" id="transferenciaRealizada">
+        <label class="form-check-label" for="transferenciaRealizada">Ya realicé la transferencia</label>
+            </div>
+            </div>
           </div>
-        </div>
         <div class="form-check mt-2">
     <input class="form-check-input" type="radio" name="pago" id="pagoMercadoPago" value="mercadopago">
     <label class="form-check-label" for="pagoMercadoPago">Mercado Pago</label>
-  </div>
+        </div>
   <div id="mercadoPagoCampos" class="mt-2 ms-3" style="display:none;">
     <p class="text-muted small">Serás redirigido a la plataforma de Mercado Pago para completar tu pago.</p>
   </div>
-</div>
-        <hr>
-
-        <div class="text-center mt-4">
+    <hr class="mt-4">
+  <div class="px-3 pb-3"> 
+  <h6 class="mb-3">Costos</h6>
+  <div class="d-flex justify-content-between mb-1">
+    <span>Subtotal:</span>
+    <span id="costoSubtotal">-</span>
+  </div>
+  <div class="d-flex justify-content-between mb-1">
+    <span>Costo de envío:</span>
+    <span id="costoEnvio">-</span>
+  </div>
+  <div class="d-flex justify-content-between fw-bold mt-3">
+    <span>Total:</span>
+    <span id="costoTotal">-</span>
+  </div>
+  </div>
+  <hr>
+        <div class="text-center mt-4 mb-4">
           <button id="confirmarCompra" class="btn btn-success px-5">
             Confirmar compra
           </button>
@@ -166,7 +198,9 @@
     </div>
   </div>
 </div>
+
 <!--------------- final ventana de confirmación  de compra -------------------->
+
     <div id="empty-cart" class="alert alert-info text-center" style="display: none;">
       Tu carrito está vacío.
     </div>
