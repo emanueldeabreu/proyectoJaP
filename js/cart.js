@@ -155,8 +155,25 @@ document.querySelectorAll(".quantity-input").forEach(input => {
 document.getElementById('confirmarCompra').addEventListener('click', function (e) {
     e.preventDefault();
 
+    // validación de cantidad
+const cantidades = document.querySelectorAll('.count');
+
+    if (cantidades.length === 0) {
+        alert("Debes tener productos en el carrito.");
+        return;
+    }
+
+    for (const input of cantidades) {
+        const valor = parseInt(input.value);
+        if (isNaN(valor) || valor <= 0) {
+            alert("Debes tener productos en el carrito.");
+            input.focus();
+            return;
+        }
+    }
+
 // validación dirección de envío
-    const camposDireccion = ['calle', 'numero', 'esquina', 'barrio', 'departamento'];
+    const camposDireccion = ['departamento', 'barrio','calle', 'numero', 'esquina'];
     for (const id of camposDireccion) {
     const campo = document.getElementById(id);
     if (!campo.value.trim()) {
